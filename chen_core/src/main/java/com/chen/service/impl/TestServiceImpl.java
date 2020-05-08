@@ -1,6 +1,7 @@
 package com.chen.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.chen.common.logAop.WebLog;
 import com.chen.common.redis.RedisUtil;
 import com.chen.core.manager.TestMananger;
 import com.chen.service.RequestDTO.TestHelloRequestDTO;
@@ -20,48 +21,57 @@ public class TestServiceImpl implements TestService {
     @Resource
     RedisUtil redisUtil;
     @Override
+    @WebLog
     public String hello(@RequestBody TestHelloRequestDTO requestDTO) {
         log.info(JSON.toJSONString(requestDTO));
         return "hello";
     }
 
     @Override
+    @WebLog
     public String hi() {
         return "hi";
     }
 
     @Override
+    @WebLog
     public String one() {
         return testMananger.getOne();
     }
 
     @Override
+    @WebLog
     public String two() {
         return testMananger.getTwo();
     }
 
     @Override
+    @WebLog
     public String oneByPage() {
         return testMananger.getOneByPage();
     }
 
     @Override
+    @WebLog
     public String oneByPage2() {
         return testMananger.getTwoByPage();
     }
 
     @Override
+    @WebLog
     public String insertOne() {
         log.info("service#insertOne");
         return testMananger.insertOne();
     }
 
     @Override
+    @WebLog
     public String insertTwo() {
         return testMananger.insertTwo();
     }
 
     @Override
+    @WebLog
     public String redisInsert() {
         redisUtil.set("key","chen");
         return "redis";

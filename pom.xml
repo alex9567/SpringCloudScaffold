@@ -66,12 +66,18 @@
                 <artifactId>chen_start</artifactId>
                 <version>${project-common.version}</version>
             </dependency>
-            <!--第三方-->
+            <!--第三方工具-->
             <!-- fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>1.2.68</version>
+            </dependency>
+            <!-- 用于日志切面中，以 json 格式打印出入参 -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.5</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
