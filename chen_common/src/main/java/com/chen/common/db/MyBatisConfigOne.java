@@ -1,4 +1,4 @@
-package com.chen.common.myabtis;
+package com.chen.common.db;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -12,17 +12,17 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.chen.dao.mapper2",sqlSessionFactoryRef = "sqlSessionFactory2",sqlSessionTemplateRef = "sqlSessionTemplate2")
-public class MyBatisConfigTwo {
-    @Resource(name = "dataSourceTwo")
-    DataSource dsTwo;
+@MapperScan(basePackages = "com.chen.dao.mapper1",sqlSessionFactoryRef = "sqlSessionFactory1",sqlSessionTemplateRef = "sqlSessionTemplate1")
+public class MyBatisConfigOne {
+    @Resource(name = "dataSourceOne")
+    DataSource dsOne;
 
     @Bean
-    SqlSessionFactory sqlSessionFactory2() {
+    SqlSessionFactory sqlSessionFactory1() {
         SqlSessionFactory sessionFactory = null;
         try {
             SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-            bean.setDataSource(dsTwo);
+            bean.setDataSource(dsOne);
             sessionFactory = bean.getObject();
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,8 +30,12 @@ public class MyBatisConfigTwo {
         return sessionFactory;
     }
     @Bean
-    SqlSessionTemplate sqlSessionTemplate2() {
-        return new SqlSessionTemplate(sqlSessionFactory2());
+    SqlSessionTemplate sqlSessionTemplate1() {
+        return new SqlSessionTemplate(sqlSessionFactory1());
     }
-
+    //去除单个事务管理
+//    @Bean
+//    public DataSourceTransactionManager transactionManager1() {
+//        return new DataSourceTransactionManager(dsOne);
+//    }
 }

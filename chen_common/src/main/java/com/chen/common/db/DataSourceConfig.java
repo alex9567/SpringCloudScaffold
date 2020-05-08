@@ -1,4 +1,4 @@
-package com.chen.common.myabtis;
+package com.chen.common.db;
 
 import com.alibaba.druid.pool.xa.DruidXADataSource;
 import com.atomikos.jdbc.AtomikosDataSourceBean;
