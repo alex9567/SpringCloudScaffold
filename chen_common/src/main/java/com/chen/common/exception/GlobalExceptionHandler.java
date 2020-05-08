@@ -1,13 +1,10 @@
 package com.chen.common.exception;
 
-import com.alibaba.fastjson.JSON;
 import com.chen.common.web.Result;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.method.HandlerMethod;
 
 @ControllerAdvice
 @Slf4j
