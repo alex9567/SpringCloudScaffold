@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chen</groupId>
+    <artifactId>SpringCloudScaffold</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>chen_common</module>
+        <module>chen_dao</module>
+        <module>chen_core</module>
+        <module>chen_service</module>
+        <module>chen_start</module>
+    </modules>
+    <!-- 常量定义 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <java.source.version>1.8</java.source.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <project-common.version>1.0.0-SNAPSHOT</project-common.version>
+        <starter.mybatis.spring.version>1.3.2</starter.mybatis.spring.version>
+        <starter.druid.version>1.1.9</starter.druid.version>
+    </properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--本地jar-->
+            <dependency>
+                <groupId>com.chen</groupId>
+                <artifactId>chen_dao</artifactId>
+                <version>${project-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chen</groupId>
+                <artifactId>chen_common</artifactId>
+                <version>${project-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chen</groupId>
+                <artifactId>chen_core</artifactId>
+                <version>${project-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chen</groupId>
+                <artifactId>chen_service</artifactId>
+                <version>${project-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chen</groupId>
+                <artifactId>chen_start</artifactId>
+                <version>${project-common.version}</version>
+            </dependency>
+            <!--第三方-->
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.68</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>25.1-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.8.1</version>
+            </dependency>
+            <!-- db -->
+            <!--mybatis starter-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>1.3.2</version>
+            </dependency>
+            <!--引入mysql驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>6.0.6</version>
+            </dependency>
+            <!--druid 依赖-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.1.10</version>
+            </dependency>
+            <!-- pagehelper分页插件依赖 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>1.2.5</version>
+            </dependency>
+            <!-- redis -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
