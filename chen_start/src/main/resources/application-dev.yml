@@ -4,17 +4,6 @@ server:
 spring:
   application:
     name: SERVICE-A
-#  datasource:
-#    one:
-#      url: jdbc:134.175.217.13:3306/chen_data2?useUnicode=true&characterEncoding=utf-8
-#      username: root
-#      password: 123qwe
-#      type: com.alibaba.druid.pool.DruidDataSource
-#    two:
-#      url: jdbc:mysql://129.211.71.185:3306/chen_data2?useUnicode=true&characterEncoding=utf-8
-#      username: root
-#      password: 123qwe
-#      type: com.alibaba.druid.pool.DruidDataSource
   datasource:
     druid:
       db1:
@@ -125,13 +114,3 @@ redis:
   testWhileIdle: true
   blockWhenExhausted: false
   JmxEnabled: false
-#data:
-#  source:
-#    username: root
-#    password: 123qwe
-#    url: jdbc:mysql://134.175.217.13:3306/chen_data?useUnicode=true&characterEncoding=utf-8&useSSL=false
-#    initialSize: 8
-#    minIdle: 8
-#    maxWait: 6000
-#    driverClassName: com.mysql.jdbc.Driver
-#    maxActive: 20
