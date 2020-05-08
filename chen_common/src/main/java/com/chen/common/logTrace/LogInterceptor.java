@@ -1,4 +1,4 @@
-package com.chen.common.log;
+package com.chen.common.logTrace;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

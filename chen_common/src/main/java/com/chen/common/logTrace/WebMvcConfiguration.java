@@ -1,4 +1,4 @@
-package com.chen.common.log;
+package com.chen.common.logTrace;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
