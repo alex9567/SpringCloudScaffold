@@ -1,8 +1,6 @@
 package com.chen.common.exception;
 
 public enum ErrorEnum {
-    SUCCESS("200","成功"),
-    ERROR("500","系统异常"),
     STRING_NOT_BLANK("1001","传参为空，参数名:{0}"),
     INTEGER_NOT_BLANK("1002","传参为空，参数名为{0}"),
     BOOLEAN_NOT_BLANK("1003","传参为空，参数名为{0}"),
