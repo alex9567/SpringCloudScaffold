@@ -3,6 +3,7 @@ package com.chen.service.impl;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.chen.common.exception.BaseException;
+import com.chen.common.nacos.ChenConfigInfo;
 import com.chen.common.web.Result;
 import com.chen.service.CommonService;
 import com.chen.service.RequestDTO.TestHelloRequestDTO;
@@ -12,6 +13,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,8 @@ import java.util.List;
 public class CommonServiceImpl implements CommonService {
     @NacosValue(value = "${hi}",autoRefreshed = true)
     private String hello;
+    @Resource
+    ChenConfigInfo chenConfigInfo;
     @Override
     public Result<String> test1() {
         return Result.success("test1");
@@ -50,5 +54,10 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public Result<String> test5(String a) {
         return Result.success(hello);
+    }
+
+    @Override
+    public Result<String> test6(String a) {
+        return Result.success(chenConfigInfo.getData().getAge());
     }
 }
