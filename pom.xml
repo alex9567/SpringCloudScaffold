@@ -126,6 +126,12 @@
                 <artifactId>nacos-config-spring-boot-starter</artifactId>
                 <version>0.2.4</version>
             </dependency>
+            <!-- rocketmq -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>4.3.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
