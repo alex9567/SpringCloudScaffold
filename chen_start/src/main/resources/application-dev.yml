@@ -87,6 +87,17 @@ spring:
         reset-enable: true
         login-username: druid
         login-password: druid
+nacos:
+  config:
+    #nacos地址
+    server-addr: 129.211.71.185:8848
+    #命名空间
+    namespace: fe45054d-001d-4317-bb77-abae5a44b1f0
+    #配置文件类型，目前只支持yaml,yml,properties,目前不需要了
+    file-extension: yml
+    #默认提供者，目前不需要了
+    prefix: SERVICE-A
+
 eureka:
   client:
     serviceUrl:

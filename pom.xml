@@ -120,6 +120,12 @@
                 <artifactId>jedis</artifactId>
                 <version>2.9.0</version>
             </dependency>
+            <!-- nacos配置中心 -->
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>0.2.4</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

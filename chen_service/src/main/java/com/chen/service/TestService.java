@@ -26,4 +26,6 @@ public interface TestService {
     public String insertTwo();
     @RequestMapping("/redisInsert")
     public String redisInsert();
+    @RequestMapping("/getNacos")
+    public String getNacos();
 }
