@@ -15,38 +15,31 @@ public class BaseException extends RuntimeException {
     /**
      * 错误码对应的参数
      */
-    private Object[] args;
+    private Object args;
 
     /**
      * 错误消息
      */
-    private String defaultMessage;
+    private String message;
 
-    public BaseException(String module, String code, Object[] args, String defaultMessage) {
+    public BaseException(){}
+
+    public BaseException(String code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+    public BaseException(String module, String code, String message) {
+        this.module = module;
+        this.code = code;
+        this.message = message;
+    }
+
+    public BaseException(String module, String code, Object args, String message) {
         this.module = module;
         this.code = code;
         this.args = args;
-        this.defaultMessage = defaultMessage;
-    }
-
-    public BaseException(String module, String code, Object[] args) {
-        this(module, code, args, null);
-    }
-
-    public BaseException(String module, String defaultMessage) {
-        this(module, null, null, defaultMessage);
-    }
-
-    public BaseException(String module, String code, String defaultMessage) {
-        this(module, code, null, defaultMessage);
-    }
-
-    public BaseException(String code, Object[] args) {
-        this(null, code, args, null);
-    }
-
-    public BaseException(String defaultMessage) {
-        this(null, null, null, defaultMessage);
+        this.message = message;
     }
 
     public String getModule() {
@@ -57,12 +50,12 @@ public class BaseException extends RuntimeException {
         return code;
     }
 
-    public Object[] getArgs() {
+    public Object getArgs() {
         return args;
     }
 
-    public String getDefaultMessage() {
-        return defaultMessage;
+    @Override
+    public String getMessage() {
+        return message;
     }
-
 }

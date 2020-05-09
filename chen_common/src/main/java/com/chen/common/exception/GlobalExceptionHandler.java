@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.method.HandlerMethod;
 
 @ControllerAdvice
 @Slf4j
@@ -12,14 +13,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionHandler {
     /**
      * 处理自定义的业务异常
-     *
+     * HandlerMethod method这个参数可以获得一些方法的额外信息
      * @param e
      * @return
      */
     @ExceptionHandler(value = BaseException.class)
     public Result bizExceptionHandler(BaseException e) {
-        log.info("basic error,method:{},params:{}", e);
-        return Result.customError(e.getCode(), e.getDefaultMessage());
+        log.info("basic error,method:{},errorMessage:{}", e.getModule(),e.getMessage());
+        return Result.customError(e.getCode(), e.getMessage());
     }
 
     /**
@@ -31,7 +32,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Result exceptionHandler(Exception e) {
-        log.info("wow,unknow error,message:{}", e);
+        log.info("wow,unknow erroro happen", e);
         return Result.error();
     }
 }
