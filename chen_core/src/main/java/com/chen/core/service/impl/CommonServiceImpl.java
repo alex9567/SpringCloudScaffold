@@ -1,4 +1,4 @@
-package com.chen.service.impl;
+package com.chen.core.service.impl;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;

@@ -1,4 +1,4 @@
-package com.chen.service.impl;
+package com.chen.core.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.chen.service.RocketMqService;
