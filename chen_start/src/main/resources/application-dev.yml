@@ -100,6 +100,7 @@ nacos:
 rocketmq:
   # 生产者配置
   producer:
+    #该应用是否启用生产者
     isOnOff: on
     # 发送同一类消息的设置为同一个group，保证唯一
     groupName: mygroup
@@ -113,6 +114,7 @@ rocketmq:
     retryTimesWhenSendFailed: 2
   # 消费者配置
   consumer:
+    #该应用是否启用消费者
     isOnOff: on
     # 官方建议：确保同一组中的每个消费者订阅相同的主题。
     groupName: mygroup
