@@ -1,11 +1,10 @@
 package com.chen.common.exception;
 
-import com.chen.common.web.Result;
+import com.chen.common.result.ResultReturn;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.method.HandlerMethod;
 
 @ControllerAdvice
 @Slf4j
@@ -18,9 +17,9 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler(value = BaseException.class)
-    public Result bizExceptionHandler(BaseException e) {
+    public ResultReturn bizExceptionHandler(BaseException e) {
         log.info("basic error,method:{},errorMessage:{}", e.getModule(),e.getMessage());
-        return Result.customError(e.getCode(), e.getMessage());
+        return ResultReturn.customError(e.getCode(), e.getMessage());
     }
 
     /**
@@ -31,9 +30,9 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Result exceptionHandler(Exception e) {
+    public ResultReturn exceptionHandler(Exception e) {
         log.info("wow,unknow erroro happen", e);
-        return Result.error();
+        return ResultReturn.error();
     }
 }
 

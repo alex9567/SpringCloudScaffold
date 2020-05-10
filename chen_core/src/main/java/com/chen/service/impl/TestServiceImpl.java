@@ -6,7 +6,7 @@ import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.chen.common.logAop.WebLog;
 import com.chen.common.redis.RedisUtil;
 import com.chen.core.manager.TestMananger;
-import com.chen.service.RequestDTO.TestHelloRequestDTO;
+import com.chen.service.requestDTO.TestHelloRequestDTO;
 import com.chen.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -4,12 +4,10 @@ import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.chen.common.exception.BaseException;
 import com.chen.common.nacos.ChenConfigInfo;
-import com.chen.common.web.Result;
 import com.chen.service.CommonService;
-import com.chen.service.RequestDTO.TestHelloRequestDTO;
+import com.chen.service.requestDTO.TestHelloRequestDTO;
+import com.chen.service.result.Result;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 

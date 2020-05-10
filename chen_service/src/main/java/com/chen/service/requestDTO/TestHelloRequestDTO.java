@@ -1,4 +1,4 @@
-package com.chen.service.RequestDTO;
+package com.chen.service.requestDTO;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 package com.chen.service;
 
-import com.chen.service.RequestDTO.TestHelloRequestDTO;
+import com.chen.service.requestDTO.TestHelloRequestDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 

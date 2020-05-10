@@ -14,10 +14,6 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>com.chen</groupId>
-            <artifactId>chen_dao</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>

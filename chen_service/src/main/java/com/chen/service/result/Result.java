@@ -1,4 +1,4 @@
-package com.chen.common.web;
+package com.chen.service.result;
 
 
 public class Result<T> {

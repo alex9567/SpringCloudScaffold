@@ -1,9 +1,8 @@
 package com.chen.service;
 
-import com.chen.common.web.Result;
-import com.chen.service.RequestDTO.TestHelloRequestDTO;
+import com.chen.service.requestDTO.TestHelloRequestDTO;
+import com.chen.service.result.Result;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
