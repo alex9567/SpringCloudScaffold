@@ -1,4 +1,4 @@
-package com.chen.comon.mq;
+package com.chen.core.mqListener;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;

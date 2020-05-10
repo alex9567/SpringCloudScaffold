@@ -2,6 +2,7 @@ package com.chen.core.manager.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.chen.common.exception.BaseException;
+import com.chen.common.logAop.ParamsLog;
 import com.chen.core.manager.TestMananger;
 import com.chen.dao.mapper1.ChenTestMapper;
 import com.chen.dao.mapper2.ChenTest2Mapper;

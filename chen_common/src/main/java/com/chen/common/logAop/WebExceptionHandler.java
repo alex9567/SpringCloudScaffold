@@ -1,5 +1,6 @@
-package com.chen.common.exception;
+package com.chen.common.logAop;
 
+import com.chen.common.exception.BaseException;
 import com.chen.common.result.ResultReturn;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -9,16 +10,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 @Slf4j
 @ResponseBody
-public class GlobalExceptionHandler {
+public class WebExceptionHandler {
     /**
      * 处理自定义的业务异常
      * HandlerMethod method这个参数可以获得一些方法的额外信息
+     *
      * @param e
      * @return
      */
     @ExceptionHandler(value = BaseException.class)
     public ResultReturn bizExceptionHandler(BaseException e) {
-        log.info("basic error,method:{},errorMessage:{}", e.getModule(),e.getMessage());
+        log.info("basic error,method:{},errorCode:{},errorMessage:{}", e.getModule(), e.getCode(), e.getMessage());
         return ResultReturn.customError(e.getCode(), e.getMessage());
     }
 
