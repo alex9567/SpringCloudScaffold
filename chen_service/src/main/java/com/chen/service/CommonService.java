@@ -25,4 +25,9 @@ public interface CommonService {
     public Result<String> test7(String a);
     @RequestMapping("/test8")
     public Result<String> test8(int a);
+    @RequestMapping("/test9")
+    public Result<String> test9(String a);
+    @RequestMapping("/test10")
+    public Result<String> test10(int a);
+
 }

@@ -6,6 +6,7 @@ import com.chen.common.exception.BaseException;
 import com.chen.common.logAop.ParamsLog;
 import com.chen.common.logAop.TraceLog;
 import com.chen.common.nacos.ChenConfigInfo;
+import com.chen.core.pipline.ApplicationService;
 import com.chen.core.process.TestProcessFactory;
 import com.chen.core.process.service.TsetProcessService;
 import com.chen.service.CommonService;
@@ -29,6 +30,8 @@ public class CommonServiceImpl implements CommonService {
     ChenConfigInfo chenConfigInfo;
     @Resource
     TestProcessFactory testProcessFactory;
+    @Resource
+    ApplicationService applicationService;
     @Override
     public Result<String> test1() {
         return Result.success("test1");
@@ -82,5 +85,16 @@ public class CommonServiceImpl implements CommonService {
             service.printName();
         }
         return Result.success("scuuess");
+    }
+
+    @Override
+    public Result<String> test9(String a) {
+        applicationService.mockedClient();
+        return Result.success("scuuess");
+    }
+
+    @Override
+    public Result<String> test10(int a) {
+        return null;
     }
 }
