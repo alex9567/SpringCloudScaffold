@@ -4,4 +4,6 @@ public interface TsetProcessService {
     public String printName();
     public String getType();
     public int getNum();
+    public String first();
+    public String second();
 }

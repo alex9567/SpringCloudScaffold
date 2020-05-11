@@ -23,4 +23,16 @@ public class Test1Process implements TsetProcessService {
     public int getNum() {
         return 1;
     }
+
+    @Override
+    public String first() {
+        log.info("test1 first");
+        return "test1";
+    }
+
+    @Override
+    public String second() {
+        log.info("test1 second");
+        return "test1";
+    }
 }
