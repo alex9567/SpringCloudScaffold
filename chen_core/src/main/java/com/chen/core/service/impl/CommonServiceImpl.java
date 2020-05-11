@@ -3,7 +3,11 @@ package com.chen.core.service.impl;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.chen.common.exception.BaseException;
+import com.chen.common.logAop.ParamsLog;
+import com.chen.common.logAop.TraceLog;
 import com.chen.common.nacos.ChenConfigInfo;
+import com.chen.core.process.TestProcessFactory;
+import com.chen.core.process.service.TsetProcessService;
 import com.chen.service.CommonService;
 import com.chen.service.requestDTO.TestHelloRequestDTO;
 import com.chen.service.result.Result;
@@ -23,6 +27,8 @@ public class CommonServiceImpl implements CommonService {
     private String hello;
     @Resource
     ChenConfigInfo chenConfigInfo;
+    @Resource
+    TestProcessFactory testProcessFactory;
     @Override
     public Result<String> test1() {
         return Result.success("test1");
@@ -57,5 +63,24 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public Result<String> test6(String a) {
         return Result.success(chenConfigInfo.getData().getAge());
+    }
+
+    @Override
+    @ParamsLog
+    @TraceLog
+    public Result<String> test7(String a) {
+        TsetProcessService service = testProcessFactory.getProcessService(a);
+        String result = service.printName();
+        return Result.success(result);
+    }
+    @Override
+    @ParamsLog
+    @TraceLog
+    public Result<String> test8(int a) {
+        List<TsetProcessService> serviceList = testProcessFactory.getProcessServiceByInt(a);
+        for(TsetProcessService service:serviceList){
+            service.printName();
+        }
+        return Result.success("scuuess");
     }
 }
