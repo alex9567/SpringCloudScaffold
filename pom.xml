@@ -108,6 +108,12 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>1.1.10</version>
             </dependency>
+            <!--atomikos依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jta-atomikos</artifactId>
+                <version>2.0.3.RELEASE</version>
+            </dependency>
             <!-- pagehelper分页插件依赖 -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
