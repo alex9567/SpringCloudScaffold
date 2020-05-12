@@ -24,6 +24,7 @@ import java.util.List;
 @RestController
 @NacosPropertySource(dataId = "CHEN_COMMON_CONFIG2" ,groupId = "DEFAULT_GROUP2", autoRefreshed = true)
 public class CommonServiceImpl implements CommonService {
+    //@NacosValue(value = "${hi:111}",autoRefreshed = true)
     @NacosValue(value = "${hi}",autoRefreshed = true)
     private String hello;
     @Resource
