@@ -19,7 +19,7 @@ public class TraceLogAspect {
     private static final String TRACE_ID = "TRACE_ID";
 
     /**
-     * 以自定义 @WebLog 注解为切点
+     * 以自定义注解为切点
      */
     @Pointcut("@annotation(com.chen.common.logAop.TraceLog)")
     public void traceLog() {

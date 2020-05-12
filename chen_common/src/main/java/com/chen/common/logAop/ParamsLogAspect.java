@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class ParamsLogAspect {
 
     /**
-     * 以自定义 @WebLog 注解为切点
+     * 以自定义注解为切点
      */
     @Pointcut("@annotation(com.chen.common.logAop.ParamsLog)")
     public void paramsLog() {
