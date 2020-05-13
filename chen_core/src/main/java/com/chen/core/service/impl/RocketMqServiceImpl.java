@@ -1,10 +1,8 @@
 package com.chen.core.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.chen.common.logAop.ParamsLog;
-import com.chen.common.logAop.TraceLog;
 import com.chen.service.RocketMqService;
-import com.chen.comon.mq.ParamConfigService;
+import com.chen.common.mq.ParamConfigService;
 import com.chen.service.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;

@@ -1,4 +1,4 @@
-package com.chen.comon.mq;
+package com.chen.common.mq;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
