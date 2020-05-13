@@ -7,9 +7,9 @@ spring:
   datasource:
     druid:
       db1:
-        url: jdbc:mysql://134.175.217.13:3306/chen_data?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+        url: jdbc:mysql://127.0.0.1:3306/chen_data?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
         username: root
-        password: 123qwe
+        password: root
         driver-class-name: com.mysql.cj.jdbc.Driver
 
         # 初始化时建立物理连接的个数。初始化发生在显示调用 init 方法，或者第一次 getConnection 时
@@ -38,9 +38,9 @@ spring:
         remove-abandoned-timeout: 1800
 
       db2:
-        url: jdbc:mysql://129.211.71.185:3306/chen_data2?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+        url: jdbc:mysql://127.0.0.1:3306/chen_data2?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
         username: root
-        password: 123qwe
+        password: root
         driver-class-name: com.mysql.cj.jdbc.Driver
 
         # 初始化时建立物理连接的个数。初始化发生在显示调用 init 方法，或者第一次 getConnection 时
