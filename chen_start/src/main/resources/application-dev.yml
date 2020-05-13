@@ -6,67 +6,6 @@ spring:
     name: SERVICE-A
   datasource:
     druid:
-      db1:
-        url: jdbc:mysql://127.0.0.1:3306/chen_data?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
-        username: root
-        password: root
-        driver-class-name: com.mysql.cj.jdbc.Driver
-
-        # 初始化时建立物理连接的个数。初始化发生在显示调用 init 方法，或者第一次 getConnection 时
-        initialSize: 5
-        # 最小连接池数量
-        minIdle: 5
-        # 最大连接池数量
-        maxActive: 10
-        # 获取连接时最大等待时间，单位毫秒。配置了 maxWait 之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置 useUnfairLock 属性为 true 使用非公平锁。
-        maxWait: 60000
-        # Destroy 线程会检测连接的间隔时间，如果连接空闲时间大于等于 minEvictableIdleTimeMillis 则关闭物理连接。
-        timeBetweenEvictionRunsMillis: 60000
-        # 连接保持空闲而不被驱逐的最小时间
-        minEvictableIdleTimeMillis: 300000
-        # 用来检测连接是否有效的 sql 因数据库方言而异, 例如 oracle 应该写成 SELECT 1 FROM DUAL
-        validationQuery: SELECT 1
-        # 建议配置为 true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行 validationQuery 检测连接是否有效。
-        testWhileIdle: true
-        # 申请连接时执行 validationQuery 检测连接是否有效，做了这个配置会降低性能。
-        testOnBorrow: false
-        # 归还连接时执行 validationQuery 检测连接是否有效，做了这个配置会降低性能。
-        testOnReturn: false
-        # 是否自动回收超时连接
-        removeAbandoned: true
-        # 超时时间 (以秒数为单位)
-        remove-abandoned-timeout: 1800
-
-      db2:
-        url: jdbc:mysql://127.0.0.1:3306/chen_data2?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
-        username: root
-        password: root
-        driver-class-name: com.mysql.cj.jdbc.Driver
-
-        # 初始化时建立物理连接的个数。初始化发生在显示调用 init 方法，或者第一次 getConnection 时
-        initialSize: 6
-        # 最小连接池数量
-        minIdle: 6
-        # 最大连接池数量
-        maxActive: 10
-        # 获取连接时最大等待时间，单位毫秒。配置了 maxWait 之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置 useUnfairLock 属性为 true 使用非公平锁。
-        maxWait: 60000
-        # Destroy 线程会检测连接的间隔时间，如果连接空闲时间大于等于 minEvictableIdleTimeMillis 则关闭物理连接。
-        timeBetweenEvictionRunsMillis: 60000
-        # 连接保持空闲而不被驱逐的最小时间
-        minEvictableIdleTimeMillis: 300000
-        # 用来检测连接是否有效的 sql 因数据库方言而异, 例如 oracle 应该写成 SELECT 1 FROM DUAL
-        validationQuery: SELECT 1
-        # 建议配置为 true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行 validationQuery 检测连接是否有效。
-        testWhileIdle: true
-        # 申请连接时执行 validationQuery 检测连接是否有效，做了这个配置会降低性能。
-        testOnBorrow: false
-        # 归还连接时执行 validationQuery 检测连接是否有效，做了这个配置会降低性能。
-        testOnReturn: false
-        # 是否自动回收超时连接
-        removeAbandoned: true
-        # 超时时间 (以秒数为单位)
-        remove-abandoned-timeout: 1800
 
       # WebStatFilter 用于采集 web-jdbc 关联监控的数据。
       web-stat-filter:
@@ -90,11 +29,11 @@ spring:
 nacos:
   config:
     #nacos地址
-    server-addr: 129.211.71.185:8848
+    server-addr: 134.175.217.13:8848
     #命名空间
-    namespace: fe45054d-001d-4317-bb77-abae5a44b1f0
+    namespace: 459cd446-2e99-47d6-a516-9c6952c0aa1d
     #配置文件类型，目前只支持yaml,yml,properties,目前不需要了
-    file-extension: yml
+    file-extension: yaml
     #默认提供者，目前不需要了
     prefix: SERVICE-A
 rocketmq:

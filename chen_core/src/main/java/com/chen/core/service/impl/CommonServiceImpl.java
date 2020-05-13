@@ -22,7 +22,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@NacosPropertySource(dataId = "CHEN_COMMON_CONFIG2" ,groupId = "DEFAULT_GROUP2", autoRefreshed = true)
+@NacosPropertySource(dataId = "CHEN_COMMON_CONFIG3" ,groupId = "DEFAULT_GROUP", autoRefreshed = true)
 public class CommonServiceImpl implements CommonService {
     //@NacosValue(value = "${hi:111}",autoRefreshed = true)
     @NacosValue(value = "${hi}",autoRefreshed = true)
