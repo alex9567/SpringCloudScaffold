@@ -1,4 +1,5 @@
 package com.chen.common.redis;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
@@ -6,6 +7,7 @@ import redis.clients.jedis.JedisPool;
 
 /**
  * Redis工具类
+ *
  * @author chenhao
  * @date 2020.5.07
  */
@@ -26,7 +28,7 @@ public class RedisUtil {
         } catch (Exception e) {
             return "0";
         } finally {
-            returnResource(jedisPool, jedis);
+            close(jedis);
         }
     }
 
@@ -42,7 +44,7 @@ public class RedisUtil {
         } catch (Exception e) {
             return "0";
         } finally {
-            returnResource(jedisPool, jedis);
+            close(jedis);
         }
         return value;
     }
@@ -58,7 +60,7 @@ public class RedisUtil {
         } catch (Exception e) {
             return false;
         } finally {
-            returnResource(jedisPool, jedis);
+            close(jedis);
         }
     }
 
@@ -73,7 +75,7 @@ public class RedisUtil {
         } catch (Exception e) {
             return 0L;
         } finally {
-            returnResource(jedisPool, jedis);
+            close(jedis);
         }
     }
 
@@ -82,9 +84,9 @@ public class RedisUtil {
     /**
      * 释放连接
      */
-    private static void returnResource(JedisPool jedisPool, Jedis jedis) {
+    private static void close(Jedis jedis) {
         if (jedis != null) {
-            jedisPool.returnResource(jedis);
+            jedis.close();
         }
     }
 }
