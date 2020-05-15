@@ -1,7 +1,7 @@
 package com.chen.dao.mapper1;
 
-import com.chen.dao.vo1.ChenTest;
-import com.chen.dao.vo1.ChenTestExample;
+import com.chen.dao.do1.ChenTest;
+import com.chen.dao.do1.ChenTestExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

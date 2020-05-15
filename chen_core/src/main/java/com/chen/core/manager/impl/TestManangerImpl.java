@@ -2,14 +2,13 @@ package com.chen.core.manager.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.chen.common.exception.BaseException;
-import com.chen.common.logAop.ParamsLog;
 import com.chen.core.manager.TestMananger;
 import com.chen.dao.mapper1.ChenTestMapper;
 import com.chen.dao.mapper2.ChenTest2Mapper;
-import com.chen.dao.vo1.ChenTest;
-import com.chen.dao.vo1.ChenTestExample;
-import com.chen.dao.vo2.ChenTest2;
-import com.chen.dao.vo2.ChenTest2Example;
+import com.chen.dao.do1.ChenTest;
+import com.chen.dao.do1.ChenTestExample;
+import com.chen.dao.do2.ChenTest2;
+import com.chen.dao.do2.ChenTest2Example;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
