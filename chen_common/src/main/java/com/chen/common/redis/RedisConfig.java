@@ -1,5 +1,7 @@
 package com.chen.common.redis;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,30 +9,31 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 @Configuration
+@NacosPropertySource(dataId = "db_config" ,groupId = "DEFAULT_GROUP", autoRefreshed = true)
 public class RedisConfig {
 
-    @Value("${redis.host}")
+    @NacosValue(value = "${redis.host}",autoRefreshed = true)
     private String host;
 
-    @Value("${redis.port}")
+    @NacosValue(value = "${redis.port}",autoRefreshed = true)
     private int port;
 
-    @Value("${redis.password}")
+    @NacosValue(value = "${redis.password}",autoRefreshed = true)
     private String password;
 
-    @Value("${redis.timeout}")
+    @NacosValue(value = "${redis.timeout}",autoRefreshed = true)
     private int timeout;
 
-    @Value("${redis.maxIdle}")
+    @NacosValue(value = "${redis.maxIdle}",autoRefreshed = true)
     private int maxIdle;
 
-    @Value("${redis.maxWaitMillis}")
+    @NacosValue(value = "${redis.maxWaitMillis}",autoRefreshed = true)
     private int maxWaitMillis;
 
-    @Value("${redis.blockWhenExhausted}")
+    @NacosValue(value = "${redis.blockWhenExhausted}",autoRefreshed = true)
     private Boolean blockWhenExhausted;
 
-    @Value("${redis.JmxEnabled}")
+    @NacosValue(value = "${redis.JmxEnabled}",autoRefreshed = true)
     private Boolean JmxEnabled;
 
     @Bean
