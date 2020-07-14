@@ -29,7 +29,7 @@ spring:
 nacos:
   config:
     #nacos地址
-    server-addr: 134.175.217.13:8848
+    server-addr: 129.211.71.185:8848
     #命名空间
     namespace: 459cd446-2e99-47d6-a516-9c6952c0aa1d
     #配置文件类型，目前只支持yaml,yml,properties,目前不需要了
@@ -42,7 +42,7 @@ rocketmq:
     #该应用是否启用生产者
     isOnOff: on
     # 发送同一类消息的设置为同一个group，保证唯一
-    groupName: mygroup
+    groupName: chengroup
     # 服务地址
     namesrvAddr: 129.211.71.185:9876
     # 消息最大长度 默认1024*4(4M)
@@ -56,7 +56,7 @@ rocketmq:
     #该应用是否启用消费者
     isOnOff: on
     # 官方建议：确保同一组中的每个消费者订阅相同的主题。
-    groupName: mygroup
+    groupName: chengroup
     # 服务地址
     namesrvAddr: 129.211.71.185:9876
     # 接收该 Topic 下所有 Tag
@@ -68,7 +68,7 @@ rocketmq:
 # 配置 Group  Topic  Tag
 rocket:
   #发送消息group不用填写
-  group: mygroup
+  group: chengroup
   topic: mytopic
   tag: rocketTag
 

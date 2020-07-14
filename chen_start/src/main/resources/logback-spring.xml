@@ -102,13 +102,13 @@
         </filter>
     </appender>
     <!-- 测试环境+开发环境. 多个使用逗号隔开. -->
-    <springProfile name="test,dev">
+    <springProfile name="dev">
         <root level="INFO">
             <appender-ref ref="console"/>
         </root>
     </springProfile>
     <!-- 生产环境. -->
-    <springProfile name="product,pre">
+    <springProfile name="prd,stg">
         <!--为了防止进程退出时，内存中的数据丢失，请加上此选项-->
         <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
         <!-- 可用来获取StatusManager中的状态 -->
