@@ -100,6 +100,8 @@ public class DataSourceConfig {
     }
     @Bean
     public DataSource druidDataSourceTwo() {
+        //没有接入分布式事务的时候使用普通DruidDataSource数据源即可
+        //DruidDataSource druidDataSource = new DruidDataSource();
         DruidXADataSource druidXADataSource = new DruidXADataSource();
         druidXADataSource.setUrl(db2Url);
         druidXADataSource.setUsername(db2Username);

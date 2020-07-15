@@ -115,13 +115,14 @@
         </filter>
     </appender>
     <!-- 不同的业务逻辑日志打印到指定文件夹 additivity用于处理是否在其他日志战士，false不展示-->
-    <logger name="com.chen.core.service.impl" additivity="true" level="INFO">
+    <logger name="com.chen.common.logAop.ParamsLogAspect" additivity="true" level="INFO">
         <appender-ref ref="other"/>
     </logger>
     <!-- 测试环境+开发环境. 多个使用逗号隔开. -->
     <springProfile name="dev">
         <root level="INFO">
             <appender-ref ref="console"/>
+            <appender-ref ref="debug"/>
             <appender-ref ref="info"/>
             <appender-ref ref="warn"/>
             <appender-ref ref="error"/>
