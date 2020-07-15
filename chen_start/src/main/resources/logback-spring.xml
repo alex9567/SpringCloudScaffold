@@ -52,15 +52,15 @@
             <maxHistory>${maxHistory}</maxHistory>
             <maxFileSize>${maxFileSize}</maxFileSize>
         </rollingPolicy>
+        <!--日志追加到结尾-->
         <append>true</append>
+        <!--对记录事件进行格式化-->
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
             <charset>utf-8</charset>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印INFO日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
 
@@ -76,13 +76,10 @@
             <pattern>${FILE_LOG_PATTERN}</pattern>
             <charset>utf-8</charset>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印WARN日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>WARN</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
-
     <!--输出到error-->
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -101,10 +98,33 @@
             <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
+    <!--输出到other-->
+    <appender name="other" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-log/other-%i.log</fileNamePattern>
+            <maxHistory>${maxHistory}</maxHistory>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+        </rollingPolicy>
+        <append>true</append>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+    <!-- 不同的业务逻辑日志打印到指定文件夹 additivity用于处理是否在其他日志战士，false不展示-->
+    <logger name="com.chen.core.service.impl" additivity="true" level="INFO">
+        <appender-ref ref="other"/>
+    </logger>
     <!-- 测试环境+开发环境. 多个使用逗号隔开. -->
     <springProfile name="dev">
         <root level="INFO">
             <appender-ref ref="console"/>
+            <appender-ref ref="info"/>
+            <appender-ref ref="warn"/>
+            <appender-ref ref="error"/>
         </root>
     </springProfile>
     <!-- 生产环境. -->

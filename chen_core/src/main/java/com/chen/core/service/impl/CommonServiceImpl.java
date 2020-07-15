@@ -61,6 +61,9 @@ public class CommonServiceImpl implements CommonService {
 
     @Override
     public Result<String> test5(String a) {
+        log.info("test5");
+        log.warn("test5");
+        log.error("test5");
         return Result.success(hello);
     }
 
