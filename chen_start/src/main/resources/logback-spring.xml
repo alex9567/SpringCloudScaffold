@@ -4,7 +4,7 @@
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <!--spring boot原生控制台配置，需要引入default才可以    -->
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
-    <!--log文件格式中添加%contextName可以获得这个值    -->
+    <!--log文件格式中添加%contextName可以获得这个值，参照history第一次提交-->
     <contextName>logback</contextName>
     <springProperty scope="context" name="spring.application.name" source="spring.application.name"/>
     <property name="log.path" value="${spring.application.name}-log" />
