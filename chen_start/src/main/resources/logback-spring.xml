@@ -5,7 +5,8 @@
     <!--spring boot原生控制台配置，需要引入default才可以    -->
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
     <contextName>logback</contextName>
-    <property name="log.path" value="./log" />
+    <springProperty scope="context" name="spring.application.name" source="spring.application.name"/>
+    <property name="log.path" value="${spring.application.name}-log" />
     <!--日志存放时间-->
     <property name="maxHistory" value="2" />
     <!--日志分割大小为一个文件-->
@@ -117,10 +118,6 @@
     </springProfile>
     <!-- 生产环境. -->
     <springProfile name="prd,stg">
-        <!--为了防止进程退出时，内存中的数据丢失，请加上此选项-->
-        <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
-        <!-- 可用来获取StatusManager中的状态 -->
-        <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
         <root level="INFO">
             <appender-ref ref="info"/>
             <appender-ref ref="warn"/>

@@ -1,0 +1,5 @@
+#spring boot logback问题，启动的时候如果spring.application.name 名字和application.yml中不一致的话，
+#会导致产生2个日志文件，第一个是空的，第二个才是有的。用配置的方法解决。要保持一致
+spring:
+  application:
+    name: SERVICE-A
