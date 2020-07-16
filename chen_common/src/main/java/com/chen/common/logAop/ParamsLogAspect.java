@@ -30,6 +30,7 @@ public class ParamsLogAspect {
 
     /**
      * 在切点之前织入
+     * 注意，如果使用Gson可以直接打印所有，但是使用jackson和fastjson都不行。
      *
      * @param joinPoint
      */
