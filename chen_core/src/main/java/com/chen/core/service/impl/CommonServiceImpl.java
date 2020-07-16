@@ -10,9 +10,14 @@ import com.chen.core.pipline.ApplicationService;
 import com.chen.core.process.TestProcessFactory;
 import com.chen.core.process.service.TsetProcessService;
 import com.chen.service.CommonService;
+import com.chen.service.requestDTO.Test2RequestDTO;
 import com.chen.service.requestDTO.TestHelloRequestDTO;
 import com.chen.service.result.Result;
+import com.chen.service.result.ResultEnum;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -100,5 +105,19 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public Result<String> test10(int a) {
         return null;
+    }
+
+    @Override
+    @ParamsLog
+    @TraceLog
+    public Result<String> test11(@RequestBody Test2RequestDTO test2RequestDTO) {
+        return Result.success("scuuess");
+    }
+
+    @Override
+    @ParamsLog
+    @TraceLog
+    public Result<String> test12(Test2RequestDTO test2RequestDTO) {
+        return Result.success("scuuess");
     }
 }

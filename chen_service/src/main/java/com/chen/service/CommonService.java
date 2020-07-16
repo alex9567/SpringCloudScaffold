@@ -1,8 +1,10 @@
 package com.chen.service;
 
+import com.chen.service.requestDTO.Test2RequestDTO;
 import com.chen.service.requestDTO.TestHelloRequestDTO;
 import com.chen.service.result.Result;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -29,5 +31,8 @@ public interface CommonService {
     public Result<String> test9(String a);
     @RequestMapping("/test10")
     public Result<String> test10(int a);
-
+    @RequestMapping("/test11")
+    public Result<String> test11(Test2RequestDTO test2RequestDTO);
+    @RequestMapping("/test12")
+    public Result<String> test12(Test2RequestDTO test2RequestDTO);
 }
