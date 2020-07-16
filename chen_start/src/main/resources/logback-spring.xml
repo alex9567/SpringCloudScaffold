@@ -13,7 +13,7 @@
     <!--日志分割大小为一个文件-->
     <property name="maxFileSize" value="10MB" />
     <!-- 普通日志格式 -->
-    <!--    <property name="FILE_LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%-5level][%logger{40}]:%msg%n"/>-->
+    <property name="FILE_LOG_PATTERN" value="[%X{TRACE_ID}][%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%-5level][%logger{40}]:%msg%n"/>
     <!--输出到debug-->
     <appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
