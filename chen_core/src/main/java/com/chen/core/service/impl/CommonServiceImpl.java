@@ -13,15 +13,12 @@ import com.chen.service.CommonService;
 import com.chen.service.requestDTO.Test2RequestDTO;
 import com.chen.service.requestDTO.TestHelloRequestDTO;
 import com.chen.service.result.Result;
-import com.chen.service.result.ResultEnum;
-import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +40,10 @@ public class CommonServiceImpl implements CommonService {
         return Result.success("test1");
     }
 
+    /**
+     * 简单测试方法返回值
+     * @return
+     */
     @Override
     public Result<List<String>> test2() {
         List<String> list = new ArrayList<>();
@@ -50,6 +51,11 @@ public class CommonServiceImpl implements CommonService {
         return Result.success(list);
     }
 
+    /**
+     * 测试BaseException异常捕获
+     * @param requestDTO
+     * @return
+     */
     @Override
     public Result<String> test3(@RequestBody TestHelloRequestDTO requestDTO) {
         if(1==1){
@@ -58,12 +64,22 @@ public class CommonServiceImpl implements CommonService {
         return Result.success("test3");
     }
 
+    /**
+     * 测试exception异常捕获
+     * @param a
+     * @return
+     */
     @Override
     public Result<String> test4(String a) {
         int b = 1/0;
         return Result.success("test4");
     }
 
+    /**
+     * 测试3个日志格式的信息，以及nacos普通注入
+     * @param a
+     * @return
+     */
     @Override
     public Result<String> test5(String a) {
         log.info("test5");
@@ -72,11 +88,21 @@ public class CommonServiceImpl implements CommonService {
         return Result.success(hello);
     }
 
+    /**
+     * 测试自定义nacos的json配置使用
+     * @param a
+     * @return
+     */
     @Override
     public Result<String> test6(String a) {
         return Result.success(chenConfigInfo.getData().getAge());
     }
 
+    /**
+     * 测试工厂类
+     * @param a
+     * @return
+     */
     @Override
     @ParamsLog
     @TraceLog
@@ -85,6 +111,12 @@ public class CommonServiceImpl implements CommonService {
         String result = service.printName();
         return Result.success(result);
     }
+
+    /**
+     * 测试工厂类的优化
+     * @param a
+     * @return
+     */
     @Override
     @ParamsLog
     @TraceLog
@@ -96,6 +128,11 @@ public class CommonServiceImpl implements CommonService {
         return Result.success("scuuess");
     }
 
+    /**
+     * 测试责任链
+     * @param a
+     * @return
+     */
     @Override
     public Result<String> test9(String a) {
         applicationService.mockedClient();
@@ -107,13 +144,23 @@ public class CommonServiceImpl implements CommonService {
         return null;
     }
 
+    /**
+     * 测试@Valid的另一种异常捕获
+     * @param test2RequestDTO
+     * @return
+     */
     @Override
     @ParamsLog
     @TraceLog
-    public Result<String> test11(@RequestBody Test2RequestDTO test2RequestDTO) {
+    public Result<String> test11(@Valid @RequestBody Test2RequestDTO test2RequestDTO) {
         return Result.success("scuuess");
     }
 
+    /**
+     * 测试不加@RequestBody的影响
+     * @param test2RequestDTO
+     * @return
+     */
     @Override
     @ParamsLog
     @TraceLog

@@ -28,12 +28,21 @@ public class TestServiceImpl implements TestService {
     @Resource
     RedisUtil redisUtil;
 
+    /**
+     * 简单测试@RequestBody的注入效果
+     * @param requestDTO
+     * @return
+     */
     @Override
     public String hello(@RequestBody TestHelloRequestDTO requestDTO) {
         log.info(JSON.toJSONString(requestDTO));
         return "hello";
     }
 
+    /**
+     * 测试aop日志和trace
+     * @return
+     */
     @Override
     @TraceLog
     @ParamsLog
@@ -41,26 +50,46 @@ public class TestServiceImpl implements TestService {
         return "hi";
     }
 
+    /**
+     * 测试mybatis
+     * @return
+     */
     @Override
     public String one() {
         return testMananger.getOne();
     }
 
+    /**
+     * 测试mybatis
+     * @return
+     */
     @Override
     public String two() {
         return testMananger.getTwo();
     }
 
+    /**
+     * 测试分页
+     * @return
+     */
     @Override
     public String oneByPage() {
         return testMananger.getOneByPage();
     }
 
+    /**
+     * 测试分页
+     * @return
+     */
     @Override
     public String oneByPage2() {
         return testMananger.getTwoByPage();
     }
 
+    /**
+     * 测试分布式事务，同事插入2个库，以及traceid是否以及在日志中体现
+     * @return
+     */
     @Override
     @TraceLog
     @ParamsLog
@@ -69,6 +98,10 @@ public class TestServiceImpl implements TestService {
         return testMananger.insertOne();
     }
 
+    /**
+     * 测试没有开启注解导致没有事务
+     * @return
+     */
     @Override
     @TraceLog
     @ParamsLog
@@ -76,12 +109,20 @@ public class TestServiceImpl implements TestService {
         return testMananger.insertTwo();
     }
 
+    /**
+     * 测试redis 插入
+     * @return
+     */
     @Override
     public String redisInsert() {
         redisUtil.set("key", "chen");
         return "redis";
     }
 
+    /**
+     * 测试获得nacos的配置
+     * @return
+     */
     @Override
     public String getNacos() {
         return hello;

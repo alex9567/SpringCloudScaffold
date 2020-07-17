@@ -1,5 +1,6 @@
 package com.chen.service.requestDTO;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
@@ -12,6 +13,8 @@ public class Test1RequestDTO implements Serializable {
     private String name;
 
     private Integer age;
+    @Min(1)
+    private Integer num;
 
     public String getName() {
         return name;
@@ -29,11 +32,20 @@ public class Test1RequestDTO implements Serializable {
         this.age = age;
     }
 
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
     @Override
     public String toString() {
-        return "TestHelloRequestDTO{" +
+        return "Test1RequestDTO{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", num=" + num +
                 '}';
     }
 }

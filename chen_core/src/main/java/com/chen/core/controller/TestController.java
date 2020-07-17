@@ -20,24 +20,66 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/controller")
 public class TestController {
+    /**
+     * aop处理@Valid
+     * @param test1RequestDTO
+     * @param result
+     * @return
+     */
     @ParamsCheck
     @TraceLog
     @RequestMapping("/test11")
-    public Result<String> test11(@Valid Test2RequestDTO test2RequestDTO, BindingResult result) {
+    public Result<String> test11(@Valid Test1RequestDTO test1RequestDTO, BindingResult result) {
         return Result.success("scuuess");
     }
 
+    /**
+     * aop处理@Valid
+     * @param test1RequestDTO
+     * @param result
+     * @return
+     */
     @ParamsCheck
     @TraceLog
     @RequestMapping("/test12")
-    public Result<String> test12(@Valid Test2RequestDTO test2RequestDTO, BindingResult result) {
+    public Result<String> test12(@Valid Test1RequestDTO test1RequestDTO, BindingResult result) {
         return Result.success("scuuess");
     }
 
-    @TraceLog
-    @ParamsCheck
+    /**
+     * 用过@Valid写法
+     * @param test1RequestDTO
+     * @param result
+     * @return
+     */
     @RequestMapping("/test13")
     public Result<String> test13(@Valid Test1RequestDTO test1RequestDTO, BindingResult result) {
+        if (result.hasErrors()) {
+            log.info("paramsError,RequestArgs:{},errorMsg", new Gson().toJson(test1RequestDTO), new Gson().toJson(result.getAllErrors()));
+        }
+        return Result.success("scuuess");
+    }
+
+    /**
+     * 用于测试@Valid如果加了BindingResult就不会有异常
+     * @param test1RequestDTO
+     * @param result
+     * @return
+     */
+    @RequestMapping("/test14")
+    public Result<String> test14(@Valid Test1RequestDTO test1RequestDTO, BindingResult result) {
+        return Result.success("scuuess");
+    }
+
+    /**
+     * 异常捕获捕获@Valid
+     * @param test1RequestDTO
+     * @return
+     */
+    @RequestMapping("/test15")
+    @TraceLog
+    @ParamsLog
+    public Result<String> test15(@Valid Test1RequestDTO test1RequestDTO) {
         return Result.success("scuuess");
     }
 }
