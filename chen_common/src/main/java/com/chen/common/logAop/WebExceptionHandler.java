@@ -56,7 +56,7 @@ public class WebExceptionHandler {
 
     /**
      * 处理自定义的业务异常
-     * 用于处理@valid 异常抛出的问题，这个用于处理@valid 和BindingResult 组合aop导致的异常
+     * 用于处理@valid 异常抛出的问题，这个用于处理@valid 和BindingResult 组合aop导致抛出的自定义异常
      * HandlerMethod method这个参数可以获得一些方法的额外信息
      *
      * @param e

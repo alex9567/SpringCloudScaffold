@@ -59,7 +59,7 @@ public class ParamsCheckAspect {
                     joinPoint.getSignature().getDeclaringTypeName(),
                     joinPoint.getSignature().getName(),
                     JSON.toJSONString(result));
-            throw new BaseException2(joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName(), ResultReturnEnum.PARAM_ERROR.getCode(),JSON.toJSONString(bindingResult.getAllErrors()));
+            throw new BaseException2(joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName(), ResultReturnEnum.PARAM_ERROR.getCode(),bindingResult.getAllErrors());
         }
         log.info("ClassMethod:{}.{},RequestArgs:{}", joinPoint.getSignature().getDeclaringTypeName(),
                 joinPoint.getSignature().getName(),
