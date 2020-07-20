@@ -1,9 +1,9 @@
 package com.chen.core.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.chen.service.RocketMqService;
 import com.chen.common.mq.ParamConfigService;
 import com.chen.service.result.Result;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -33,7 +33,7 @@ public class RocketMqServiceImpl implements RocketMqService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        log.info("sendResult:{}", JSON.toJSONString(sendResult));
+        log.info("sendResult:{}", new Gson().toJson(sendResult));
         return Result.success(sendResult.getMsgId()) ;
     }
 }

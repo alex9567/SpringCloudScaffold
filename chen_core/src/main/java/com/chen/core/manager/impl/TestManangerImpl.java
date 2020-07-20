@@ -1,6 +1,6 @@
 package com.chen.core.manager.impl;
 
-import com.alibaba.fastjson.JSON;
+
 import com.chen.common.exception.BaseException;
 import com.chen.core.manager.TestMananger;
 import com.chen.dao.mapper1.ChenTestMapper;
@@ -11,6 +11,7 @@ import com.chen.dao.do2.ChenTest2;
 import com.chen.dao.do2.ChenTest2Example;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -56,8 +57,8 @@ public class TestManangerImpl implements TestMananger {
         PageHelper.startPage(1, 5);
         List<ChenTest> list = chenTestMapper.selectByExample(example);
         PageInfo<ChenTest> pageInfo = new PageInfo<>(list);
-        log.info("list1:{}", JSON.toJSONString(list));
-        log.info("page1:{}",JSON.toJSONString(pageInfo));
+        log.info("list1:{}", new Gson().toJson(list));
+        log.info("page1:{}",new Gson().toJson(pageInfo));
         return "byPage1";
     }
 
@@ -68,8 +69,8 @@ public class TestManangerImpl implements TestMananger {
         PageHelper.startPage(1, 5);
         List<ChenTest2> list = chenTest2Mapper.selectByExample(example);
         PageInfo<ChenTest2> pageInfo = new PageInfo<>(list);
-        log.info("list1:{}", JSON.toJSONString(list));
-        log.info("page2:{}",JSON.toJSONString(pageInfo));
+        log.info("list1:{}", new Gson().toJson(list));
+        log.info("page2:{}",new Gson().toJson(pageInfo));
         return "byPage2";
     }
 

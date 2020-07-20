@@ -1,6 +1,5 @@
 package com.chen.common.logAop;
 
-import com.alibaba.fastjson.JSON;
 import com.chen.common.exception.BaseException;
 import com.chen.common.exception.BaseException2;
 import com.chen.common.result.ResultReturn;
@@ -58,7 +57,7 @@ public class ParamsCheckAspect {
             log.info("ClassMethod:{}.{}.paramsError,RequestArgs:{}",
                     joinPoint.getSignature().getDeclaringTypeName(),
                     joinPoint.getSignature().getName(),
-                    JSON.toJSONString(result));
+                    new Gson().toJson(result));
             throw new BaseException2(joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName(), ResultReturnEnum.PARAM_ERROR.getCode(),bindingResult.getAllErrors());
         }
         log.info("ClassMethod:{}.{},RequestArgs:{}", joinPoint.getSignature().getDeclaringTypeName(),
