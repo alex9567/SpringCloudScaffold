@@ -7,6 +7,7 @@ import com.chen.common.logAop.ParamsLog;
 import com.chen.common.logAop.TraceLog;
 import com.chen.common.nacos.ChenConfigInfo;
 import com.chen.core.pipline.ApplicationService;
+import com.chen.core.piplineHandler.ApplicationService2;
 import com.chen.core.process.TestProcessFactory;
 import com.chen.core.process.service.TsetProcessService;
 import com.chen.service.CommonService;
@@ -35,6 +36,8 @@ public class CommonServiceImpl implements CommonService {
     TestProcessFactory testProcessFactory;
     @Resource
     ApplicationService applicationService;
+    @Resource
+    ApplicationService2 applicationService2;
     @Override
     public Result<String> test1() {
         return Result.success("test1");
@@ -166,5 +169,15 @@ public class CommonServiceImpl implements CommonService {
     @TraceLog
     public Result<String> test12(Test2RequestDTO test2RequestDTO) {
         return Result.success("scuuess");
+    }
+
+    /**
+     * 高级版本的责任链
+     * @return
+     */
+    @Override
+    public Result<String> test13() {
+        applicationService2.mockedClient();
+        return Result.success("success");
     }
 }
