@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component("pipeline")
-@Scope("prototype")
 public class DefaultPipeline implements Pipeline, ApplicationContextAware, InitializingBean {
     // 创建一个默认的handler，将其注入到首尾两个节点的HandlerContext中，其作用只是将链往下传递
     private static final Handler DEFAULT_HANDLER = new Handler() {};
