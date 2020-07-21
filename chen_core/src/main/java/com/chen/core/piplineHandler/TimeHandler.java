@@ -41,7 +41,8 @@ public class TimeHandler implements Handler {
     }
 
     @Override
-    public void exceptionCaught(HandlerContext ctx, Exception e) {
+    public void exceptionCaught(HandlerContext ctx, Exception e) throws Exception{
         log.info("Error",e);
+        throw e;
     }
 }
