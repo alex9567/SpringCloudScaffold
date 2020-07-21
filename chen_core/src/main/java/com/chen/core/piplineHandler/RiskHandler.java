@@ -42,4 +42,9 @@ public class RiskHandler implements Handler {
         ctx.fireTaskThree(task);
     }
 
+    @Override
+    public void exceptionCaught(HandlerContext ctx, Exception e) {
+        log.info("Error",e);
+    }
+
 }

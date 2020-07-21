@@ -15,7 +15,7 @@ public class DurationHandler implements Handler {
     @Override
     public void oneTask(HandlerContext ctx, Request request) {
         log.info("时效性检验,接受逻辑");
-        request.setDeal(request.getDeal()+",doDuratioOne");
+        request.setDeal(request.getDeal() + ",doDuratioOne");
         log.info(new Gson().toJson(request));
         ctx.fireTaskOne(request);
     }
@@ -26,7 +26,7 @@ public class DurationHandler implements Handler {
     @Override
     public void twoTask(HandlerContext ctx, Task task) {
         log.info("时效性检验,过滤逻辑");
-        task.setNum(task.getNum()+1);
+        task.setNum(task.getNum() + 1);
         log.info(new Gson().toJson(task));
         ctx.fireTaskTwo(task);
     }
@@ -38,5 +38,10 @@ public class DurationHandler implements Handler {
     public void threeTask(HandlerContext ctx, Task task) {
         log.info("时效性检验,执行逻辑");
         ctx.fireTaskThree(task);
+    }
+
+    @Override
+    public void exceptionCaught(HandlerContext ctx, Exception e) {
+        log.info("Error",e);
     }
 }

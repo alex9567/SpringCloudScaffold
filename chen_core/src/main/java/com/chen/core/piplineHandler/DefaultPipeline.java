@@ -13,7 +13,8 @@ import java.util.List;
 @Scope("prototype")
 public class DefaultPipeline implements Pipeline, ApplicationContextAware, InitializingBean {
     // 创建一个默认的handler，将其注入到首尾两个节点的HandlerContext中，其作用只是将链往下传递
-    private Handler DEFAULT_HANDLER = new Handler() {};
+    private Handler DEFAULT_HANDLER = new Handler() {
+    };
 
     // 将ApplicationContext注入进来的主要原因在于，HandlerContext是prototype类型的，因而需要
     // 通过ApplicationContext.getBean()方法来获取其实例
@@ -28,10 +29,12 @@ public class DefaultPipeline implements Pipeline, ApplicationContextAware, Initi
     private Request request;
     // 用于执行任务的task对象
     private Task task;
+
     //空构造函数
     public DefaultPipeline() {
 
     }
+
     // 最初始的业务数据需要通过构造函数传入，因为这是驱动整个pipeline所需要的数据，
     // 一般通过外部调用方的参数进行封装即可
     public DefaultPipeline(Request request) {
@@ -81,8 +84,10 @@ public class DefaultPipeline implements Pipeline, ApplicationContextAware, Initi
         handlerContext.next = tail;
         tail.prev = handlerContext;
     }
+
     @Autowired
     private List<Handler> handlerList;
+
     // 这里通过实现InitializingBean接口来达到初始化Pipeline的目的，可以看到，这里初始的时候
     // 我们通过ApplicationContext实例化了两个HandlerContext对象，然后将head.next指向tail节点，
     // 将tail.prev指向head节点。也就是说，初始时，整个链只有头结点和尾节点。
@@ -92,7 +97,7 @@ public class DefaultPipeline implements Pipeline, ApplicationContextAware, Initi
         tail = newContext(DEFAULT_HANDLER);
         head.next = tail;
         tail.prev = head;
-        for(Handler handler:handlerList){
+        for (Handler handler : handlerList) {
             addLast(handler);
         }
     }

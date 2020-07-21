@@ -24,6 +24,8 @@ public class TimeHandler implements Handler {
     @Override
     public void twoTask(HandlerContext ctx, Task task) {
         log.info("次数检验,过滤逻辑");
+        int error = 0;
+        error = 1 / error;
         ctx.fireTaskTwo(task);
     }
 
@@ -33,8 +35,13 @@ public class TimeHandler implements Handler {
     @Override
     public void threeTask(HandlerContext ctx, Task task) {
         log.info("次数检验,执行逻辑");
-        task.setNum(task.getNum()+1);
+        task.setNum(task.getNum() + 1);
         log.info(new Gson().toJson(task));
         ctx.fireTaskThree(task);
+    }
+
+    @Override
+    public void exceptionCaught(HandlerContext ctx, Exception e) {
+        log.info("Error",e);
     }
 }

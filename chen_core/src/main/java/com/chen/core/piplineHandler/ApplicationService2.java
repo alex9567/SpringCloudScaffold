@@ -23,7 +23,7 @@ public class ApplicationService2 {
     }
 
     private Pipeline newPipeline(Request request) {
-        DefaultPipeline pipeline = context.getBean(DefaultPipeline.class,request,new Task());
-           return pipeline;
+        DefaultPipeline pipeline = context.getBean(DefaultPipeline.class, request, new Task());
+        return pipeline;
     }
 }

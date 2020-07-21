@@ -35,7 +35,7 @@ public class HandlerContext {
         if (ctx != null) {
             try {
                 ctx.handler().oneTask(ctx, request);
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 ctx.handler().exceptionCaught(ctx, e);
             }
         }
@@ -52,7 +52,7 @@ public class HandlerContext {
         if (null != ctx) {
             try {
                 ctx.handler().twoTask(ctx, task);
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 ctx.handler().exceptionCaught(ctx, e);
             }
         }
