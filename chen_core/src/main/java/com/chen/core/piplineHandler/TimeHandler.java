@@ -1,5 +1,6 @@
 package com.chen.core.piplineHandler;
 
+import com.chen.common.exception.BaseException;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
@@ -41,8 +42,8 @@ public class TimeHandler implements Handler {
     }
 
     @Override
-    public void exceptionCaught(HandlerContext ctx, Exception e) throws Exception{
-        log.info("Error",e);
-        throw e;
+    public void exceptionCaught(HandlerContext ctx, Exception e){
+        //log.info("TimeInfo",e);
+        throw new RuntimeException(e);
     }
 }

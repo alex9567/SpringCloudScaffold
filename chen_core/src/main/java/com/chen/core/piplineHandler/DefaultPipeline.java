@@ -50,21 +50,21 @@ public class DefaultPipeline implements Pipeline, ApplicationContextAware, Initi
     // 也就是说我们每一层级链的入口都是从头结点开始的，当然在某些情况下，我们也需要从尾节点开始链
     // 的调用，这个时候传入tail即可。
     @Override
-    public Pipeline fireOne() {
+    public Pipeline fireOne(){
         HandlerContext.invokeTaskOne(head, request);
         return this;
     }
 
     // 触发任务过滤的链调用
     @Override
-    public Pipeline fireTwo() {
+    public Pipeline fireTwo(){
         HandlerContext.invokeTaskTwo(head, task);
         return this;
     }
 
     // 触发任务执行的链执行
     @Override
-    public Pipeline fireThree() {
+    public Pipeline fireThree(){
         HandlerContext.invokeTaskThree(head, task);
         return this;
     }

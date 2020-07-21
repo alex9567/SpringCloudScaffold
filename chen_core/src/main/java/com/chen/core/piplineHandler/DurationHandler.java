@@ -39,9 +39,9 @@ public class DurationHandler implements Handler {
         log.info("时效性检验,执行逻辑");
         ctx.fireTaskThree(task);
     }
-
     @Override
-    public void exceptionCaught(HandlerContext ctx, Exception e) {
-        log.info("Error",e);
+    public void exceptionCaught(HandlerContext ctx, Exception e){
+        //log.info("DurationInfo",e);
+        throw new RuntimeException(e);
     }
 }

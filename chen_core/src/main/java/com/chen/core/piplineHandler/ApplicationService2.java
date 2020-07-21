@@ -1,10 +1,12 @@
 package com.chen.core.piplineHandler;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class ApplicationService2 {
 
     @Autowired
@@ -17,7 +19,8 @@ public class ApplicationService2 {
             pipeline.fireOne();
             pipeline.fireTwo();
             pipeline.fireThree();
-        } finally {
+        }finally {
+            log.info("fireAfterCompletion");
             pipeline.fireAfterCompletion();
         }
     }
