@@ -19,6 +19,8 @@ public class DefaultHandlerChain implements HandlerChain, InitializingBean {
     public void doChain(HandlerRequest handlerRequest) {
         this.handlerRequest = handlerRequest;
         this.handlerTask = new HandlerTask();
+        handlerTask.setDescription("test");
+        handlerTask.setNum(0);
         handlerContext.doHandler(this.handlerRequest,this.handlerTask);
     }
 
