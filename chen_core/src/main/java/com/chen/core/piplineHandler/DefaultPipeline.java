@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component("pipeline")
+@Scope("prototype")
 public class DefaultPipeline implements Pipeline, ApplicationContextAware, InitializingBean {
     // 创建一个默认的handler，将其注入到首尾两个节点的HandlerContext中，其作用只是将链往下传递
-    private static final Handler DEFAULT_HANDLER = new Handler() {};
+    private Handler DEFAULT_HANDLER = new Handler() {};
 
     // 将ApplicationContext注入进来的主要原因在于，HandlerContext是prototype类型的，因而需要
     // 通过ApplicationContext.getBean()方法来获取其实例
@@ -29,11 +30,17 @@ public class DefaultPipeline implements Pipeline, ApplicationContextAware, Initi
     private Task task;
     //空构造函数
     public DefaultPipeline() {
+
     }
     // 最初始的业务数据需要通过构造函数传入，因为这是驱动整个pipeline所需要的数据，
     // 一般通过外部调用方的参数进行封装即可
     public DefaultPipeline(Request request) {
         this.request = request;
+    }
+
+    public DefaultPipeline(Request request, Task task) {
+        this.request = request;
+        this.task = task;
     }
 
     // 这里我们可以看到，每一层级的调用都是通过HandlerContext.invokeXXX(head)的方式进行的，

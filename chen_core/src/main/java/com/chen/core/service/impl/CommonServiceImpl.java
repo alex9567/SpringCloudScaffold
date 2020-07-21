@@ -8,6 +8,7 @@ import com.chen.common.logAop.TraceLog;
 import com.chen.common.nacos.ChenConfigInfo;
 import com.chen.core.pipline.ApplicationService;
 import com.chen.core.piplineHandler.ApplicationService2;
+import com.chen.core.piplineHandler.Request;
 import com.chen.core.process.TestProcessFactory;
 import com.chen.core.process.service.TsetProcessService;
 import com.chen.service.CommonService;
@@ -176,8 +177,11 @@ public class CommonServiceImpl implements CommonService {
      * @return
      */
     @Override
-    public Result<String> test13() {
-        applicationService2.mockedClient();
+    public Result<String> test13(String name) {
+        Request request = new Request();
+        request.setName(name);
+        request.setDeal("0");
+        applicationService2.mockedClient(request);
         return Result.success("success");
     }
 }

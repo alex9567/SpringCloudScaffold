@@ -3,6 +3,9 @@ package com.chen.core.piplineHandler;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * 通过spring管理，因为在一个责任链中有多个handler，所以要添加@Scope("prototype")属性
+ */
 @Component
 @Scope("prototype")
 public class HandlerContext {
@@ -14,6 +17,9 @@ public class HandlerContext {
      * 下一个
      */
     HandlerContext next;
+    /**
+     * handler
+     */
     Handler handler;
 
     private Task task;

@@ -10,8 +10,8 @@ public class ApplicationService2 {
     @Autowired
     private ApplicationContext context;
 
-    public void mockedClient() {
-        Request request = new Request();  // request一般是通过外部调用获取
+    public void mockedClient(Request request) {
+        //Request request = new Request();  // request一般是通过外部调用获取
         Pipeline pipeline = newPipeline(request);
         try {
             pipeline.fireOne();
@@ -23,6 +23,7 @@ public class ApplicationService2 {
     }
 
     private Pipeline newPipeline(Request request) {
-        return context.getBean(DefaultPipeline.class, request);
+        DefaultPipeline pipeline = context.getBean(DefaultPipeline.class,request,new Task());
+           return pipeline;
     }
 }

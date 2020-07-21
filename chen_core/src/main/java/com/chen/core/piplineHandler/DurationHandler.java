@@ -1,5 +1,6 @@
 package com.chen.core.piplineHandler;
 
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,8 @@ public class DurationHandler implements Handler {
     @Override
     public void oneTask(HandlerContext ctx, Request request) {
         log.info("时效性检验,接受逻辑");
+        request.setDeal(request.getDeal()+",doDuratioOne");
+        log.info(new Gson().toJson(request));
         ctx.fireTaskOne(request);
     }
 
@@ -23,6 +26,8 @@ public class DurationHandler implements Handler {
     @Override
     public void twoTask(HandlerContext ctx, Task task) {
         log.info("时效性检验,过滤逻辑");
+        task.setNum(task.getNum()+1);
+        log.info(new Gson().toJson(task));
         ctx.fireTaskTwo(task);
     }
 

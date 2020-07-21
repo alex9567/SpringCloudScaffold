@@ -1,5 +1,6 @@
 package com.chen.core.piplineHandler;
 
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,9 @@ public class RiskHandler implements Handler {
      */
     @Override
     public void oneTask(HandlerContext ctx, Request request) {
+        request.setDeal(request.getDeal()+",doRiskOne");
         log.info("风险拦截,接受逻辑");
+        log.info(new Gson().toJson(request));
         //ctx.fireTaskOne(request);
     }
 
@@ -23,7 +26,10 @@ public class RiskHandler implements Handler {
      */
     @Override
     public void twoTask(HandlerContext ctx, Task task) {
+        task.setDescription("new Task");
+        task.setNum(0);
         log.info("风险拦截,过滤逻辑");
+        log.info(new Gson().toJson(task));
         ctx.fireTaskTwo(task);
     }
 
