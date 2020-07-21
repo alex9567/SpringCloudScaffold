@@ -9,6 +9,8 @@ import com.chen.common.nacos.ChenConfigInfo;
 import com.chen.core.pipline.ApplicationService;
 import com.chen.core.piplineHandler.ApplicationService2;
 import com.chen.core.piplineHandler.Request;
+import com.chen.core.piplineHandler2.HandlerChain;
+import com.chen.core.piplineHandler2.HandlerRequest;
 import com.chen.core.process.TestProcessFactory;
 import com.chen.core.process.service.TsetProcessService;
 import com.chen.service.CommonService;
@@ -39,6 +41,8 @@ public class CommonServiceImpl implements CommonService {
     ApplicationService applicationService;
     @Resource
     ApplicationService2 applicationService2;
+    @Resource
+    HandlerChain handlerChain;
     @Override
     public Result<String> test1() {
         return Result.success("test1");
@@ -184,4 +188,18 @@ public class CommonServiceImpl implements CommonService {
         applicationService2.mockedClient(request);
         return Result.success("success");
     }
+
+    /**
+     * 自己实现的责任链
+     * @param name
+     * @return
+     */
+    @Override
+    public Result<String> test14(String name) {
+        HandlerRequest request = new HandlerRequest();
+        request.setName(name);
+        handlerChain.doChain(request);
+        return Result.success("success");
+    }
+
 }
