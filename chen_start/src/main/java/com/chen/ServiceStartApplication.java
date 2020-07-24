@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 //一个spring mvc控制
 @EnableDiscoveryClient
 //eureka 发现
-@EnableFeignClients(basePackages = {"com.chen.service"})
+@EnableFeignClients(basePackages = {"com.chen"})
 //包的范围搜索
 //@EnableTransactionManagement
 //开启事务,只有只有单个数据源的时候可以用这个开启事务，使用XA2段提交之后不需要使用该注解了

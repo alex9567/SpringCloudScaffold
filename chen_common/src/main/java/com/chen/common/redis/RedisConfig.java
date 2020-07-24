@@ -2,6 +2,7 @@ package com.chen.common.redis;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +11,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 @Configuration
 @NacosPropertySource(dataId = "db_config" ,groupId = "DEFAULT_GROUP", autoRefreshed = true)
+@Slf4j
 public class RedisConfig {
 
     @NacosValue(value = "${redis.host}",autoRefreshed = true)
@@ -38,7 +40,7 @@ public class RedisConfig {
 
     @Bean
     public JedisPool jedisPoolFactory() {
-        System.out.println("JedisPool注入开始...");
+        log.info("JedisPool注入开始...");
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxIdle(maxIdle);
         jedisPoolConfig.setMaxWaitMillis(maxWaitMillis);
@@ -47,7 +49,7 @@ public class RedisConfig {
         // 是否启用pool的jmx管理功能, 默认true
         jedisPoolConfig.setJmxEnabled(JmxEnabled);
         JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
-        System.out.println("JedisPool注入成功...");
+        log.info("JedisPool注入成功...");
         return jedisPool;
     }
 }
