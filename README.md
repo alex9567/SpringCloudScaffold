@@ -16,3 +16,5 @@ CSDN相关博客更新:
 (七)redis和rocketmq接入：https://blog.csdn.net/qq_33562996/article/details/106078541
 
 (八)nacos动态配置中心接入：https://blog.csdn.net/qq_33562996/article/details/106079594
+
+其他说明:由于之前的mysql被人改了密码，所以重新设置了。如果有启动需求可以单独找我，还有在我的github上最好下载哪个spring -test。分布式项目起码2个菜能看出服务调用嘛
