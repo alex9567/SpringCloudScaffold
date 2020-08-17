@@ -138,6 +138,11 @@
                 <artifactId>rocketmq-client</artifactId>
                 <version>4.3.0</version>
             </dependency>
+            <dependency>
+                <groupId>com.chen</groupId>
+                <artifactId>chen-openFeign</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

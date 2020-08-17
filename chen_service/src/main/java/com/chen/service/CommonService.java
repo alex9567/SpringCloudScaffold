@@ -6,6 +6,7 @@ import com.chen.service.result.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -39,4 +40,16 @@ public interface CommonService {
     public Result<String> test13(String name);
     @RequestMapping("/test14")
     public Result<String> test14(String name);
+    @RequestMapping("/test15")
+    public Result<String> test15(String name);
+    @RequestMapping("/test16")
+    public Result<String> test16(String name);
+    @RequestMapping("/test17")
+    public Result<String> test17(String name);
+    @RequestMapping("/test18")
+    public Result<String> test18(String name);
+    @RequestMapping("/test19")
+    public Result<String> test19(String name);
+    @RequestMapping("/test20")
+    public Result<String> test20(MultipartFile file);
 }

@@ -21,5 +21,9 @@
             <groupId>com.chen</groupId>
             <artifactId>chen_dao</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.chen</groupId>
+            <artifactId>chen-openFeign</artifactId>
+        </dependency>
     </dependencies>
 </project>
