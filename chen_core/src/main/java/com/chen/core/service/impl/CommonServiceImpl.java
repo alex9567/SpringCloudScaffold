@@ -262,7 +262,7 @@ public class CommonServiceImpl implements CommonService {
     }
 
     /**
-     * 线程池调用
+     * 线程池调用并且获得结果值
      *
      * @param name
      * @return

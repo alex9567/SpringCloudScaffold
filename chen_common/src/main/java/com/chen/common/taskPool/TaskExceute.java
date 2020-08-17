@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.Future;
 
+/**
+ * 线程池相关调用类
+ */
 @Component
 @Slf4j
 public class TaskExceute {
