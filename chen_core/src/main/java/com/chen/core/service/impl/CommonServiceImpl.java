@@ -34,10 +34,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 @Slf4j
 @RestController
@@ -87,6 +85,7 @@ public class CommonServiceImpl implements CommonService {
      */
     @Override
     public Result<String> test3(@RequestBody TestHelloRequestDTO requestDTO) {
+        log.info(new Gson().toJson(requestDTO));
         if (1 == 1) {
             throw new BaseException("test3", "11", "11");
         }
@@ -337,6 +336,12 @@ public class CommonServiceImpl implements CommonService {
             log.error(e.toString(), e);
         }
         return Result.success("上传失败！");
+    }
+
+    @Override
+    public Result<String> test21(Test2RequestDTO test2RequestDTO) {
+        log.info(new Gson().toJson(test2RequestDTO));
+        return Result.success("success");
     }
 
 }

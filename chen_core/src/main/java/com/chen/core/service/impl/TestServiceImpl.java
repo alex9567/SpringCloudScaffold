@@ -8,20 +8,25 @@ import com.chen.common.redis.RedisUtil;
 import com.chen.core.manager.TestMananger;
 import com.chen.service.requestDTO.TestHelloRequestDTO;
 import com.chen.service.TestService;
+import com.chen.service.requestDTO.TestRedisRequestDTO;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.GeoCoordinate;
+import redis.clients.jedis.GeoRadiusResponse;
+import redis.clients.jedis.GeoUnit;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @Slf4j
 @RestController
 @NacosPropertySource(dataId = "CHEN_COMMON_CONFIG", groupId = "DEFAULT_GROUP", autoRefreshed = true)
 public class TestServiceImpl implements TestService {
-    @NacosValue(value = "${hi}",autoRefreshed = true)
+    @NacosValue(value = "${hi}", autoRefreshed = true)
     private String hello;
     @Resource
     TestMananger testMananger;
@@ -30,6 +35,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 简单测试@RequestBody的注入效果
+     *
      * @param requestDTO
      * @return
      */
@@ -41,6 +47,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 测试aop日志和trace
+     *
      * @return
      */
     @Override
@@ -52,6 +59,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 测试mybatis
+     *
      * @return
      */
     @Override
@@ -61,6 +69,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 测试mybatis
+     *
      * @return
      */
     @Override
@@ -70,6 +79,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 测试分页
+     *
      * @return
      */
     @Override
@@ -79,6 +89,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 测试分页
+     *
      * @return
      */
     @Override
@@ -88,6 +99,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 测试分布式事务，同事插入2个库，以及traceid是否以及在日志中体现
+     *
      * @return
      */
     @Override
@@ -100,6 +112,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 测试没有开启注解导致没有事务
+     *
      * @return
      */
     @Override
@@ -111,6 +124,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 测试redis 插入
+     *
      * @return
      */
     @Override
@@ -120,7 +134,57 @@ public class TestServiceImpl implements TestService {
     }
 
     /**
+     * redis geo插入
+     *
+     * @return
+     */
+    @Override
+    public String geoAdd(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+        GeoCoordinate geoCoordinate = new GeoCoordinate(testRedisRequestDTO.getLongitude(), testRedisRequestDTO.getLatitude());
+        redisUtil.geoadd(testRedisRequestDTO.getKey(), geoCoordinate, testRedisRequestDTO.getMember());
+        return "success";
+    }
+
+    /**
+     * redis geo删除
+     *
+     * @return
+     */
+    @Override
+    public String geoRemove(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+        redisUtil.geoRemove(testRedisRequestDTO.getKey(),testRedisRequestDTO.getMember());
+        return "success";
+    }
+
+    /**
+     * redis geo获得列表
+     *
+     * @return
+     */
+    @Override
+    public String geoRadius(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+        GeoCoordinate geoCoordinate = new GeoCoordinate(testRedisRequestDTO.getLongitude(), testRedisRequestDTO.getLatitude());
+        List<GeoRadiusResponse>  radiusResponses = redisUtil.geoRadius(testRedisRequestDTO.getKey(),geoCoordinate,testRedisRequestDTO.getRadius(),GeoUnit.M);
+        log.info(new Gson().toJson(radiusResponses));
+        return "success";
+    }
+
+    /**
+     * redis geo距离判断
+     *
+     * @return
+     */
+    @Override
+    public String geoDist(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+        Double result = redisUtil.geoDist(testRedisRequestDTO.getKey(),testRedisRequestDTO.getMember(),testRedisRequestDTO.getMember2(),GeoUnit.M);
+        log.info(new Gson().toJson(result));
+        return "success";
+    }
+
+
+    /**
      * 测试获得nacos的配置
+     *
      * @return
      */
     @Override

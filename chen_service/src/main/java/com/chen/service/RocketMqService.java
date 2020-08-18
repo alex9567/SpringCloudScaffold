@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient(name = "SERVICE-A")
 public interface RocketMqService {
-    @RequestMapping("/sendOne")
+    @RequestMapping("/mq/sendOne")
     public Result<String> openAccountMsg(String msgInfo);
 }
