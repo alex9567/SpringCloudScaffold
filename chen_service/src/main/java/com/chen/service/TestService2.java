@@ -14,10 +14,12 @@ import java.util.List;
 @FeignClient(name = "SERVICE-A")
 @RequestMapping("/test2")
 public interface TestService2 {
-    @RequestMapping(method = RequestMethod.POST, value = "/test1")
+    @RequestMapping("/test1")
     public Result<String> test1();
-    @RequestMapping(method = RequestMethod.POST, value = "/test2")
+    @RequestMapping("/test2")
     public Result<String> test2();
-    @RequestMapping(method = RequestMethod.POST, value = "/test3")
-    public Result<String> test3(@RequestBody TestHelloRequestDTO requestDTO);
+    @RequestMapping("/test3")
+    public Result<String> test3(TestHelloRequestDTO requestDTO);
+    @RequestMapping("/test4")
+    public Result<String> test4(TestHelloRequestDTO requestDTO);
 }

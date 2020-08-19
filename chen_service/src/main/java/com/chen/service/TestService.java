@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/test")
 public interface TestService {
     @RequestMapping("/hello")
-    public String hello(@RequestBody TestHelloRequestDTO requestDTO);
+    public String hello(TestHelloRequestDTO requestDTO);
     @RequestMapping("/hi")
     public String hi();
     @RequestMapping("/one")
@@ -30,13 +30,13 @@ public interface TestService {
     @RequestMapping("/redisInsert")
     public String redisInsert();
     @RequestMapping("/geoAdd")
-    public String geoAdd(@RequestBody TestRedisRequestDTO testRedisRequestDTO);
+    public String geoAdd(TestRedisRequestDTO testRedisRequestDTO);
     @RequestMapping("/geoRemove")
-    public String geoRemove(@RequestBody TestRedisRequestDTO testRedisRequestDTO);
+    public String geoRemove(TestRedisRequestDTO testRedisRequestDTO);
     @RequestMapping("/geoRadius")
-    public String geoRadius(@RequestBody TestRedisRequestDTO testRedisRequestDTO);
+    public String geoRadius(TestRedisRequestDTO testRedisRequestDTO);
     @RequestMapping("/geoDist")
-    public String geoDist(@RequestBody TestRedisRequestDTO testRedisRequestDTO);
+    public String geoDist(TestRedisRequestDTO testRedisRequestDTO);
     @RequestMapping("/getNacos")
     public String getNacos();
 }

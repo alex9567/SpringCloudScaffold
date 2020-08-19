@@ -20,7 +20,7 @@ public interface CommonService {
     @RequestMapping("/test2")
     public Result<List<String>> test2();
     @RequestMapping("/test3")
-    public Result<String> test3(@RequestBody TestHelloRequestDTO requestDTO);
+    public Result<String> test3(TestHelloRequestDTO requestDTO);
     @RequestMapping("/test4")
     public Result<String> test4(String a);
     @RequestMapping("/test5")
@@ -36,9 +36,9 @@ public interface CommonService {
     @RequestMapping("/test10")
     public Result<String> test10(int a);
     @RequestMapping("/test11")
-    public Result<String> test11(@RequestBody Test2RequestDTO test2RequestDTO);
+    public Result<String> test11(Test2RequestDTO test2RequestDTO);
     @RequestMapping("/test12")
-    public Result<String> test12(@RequestBody Test2RequestDTO test2RequestDTO);
+    public Result<String> test12(Test2RequestDTO test2RequestDTO);
     @RequestMapping("/test13")
     public Result<String> test13(String name);
     @RequestMapping("/test14")
@@ -56,5 +56,5 @@ public interface CommonService {
     @RequestMapping("/test20")
     public Result<String> test20(MultipartFile file);
     @RequestMapping("/test21")
-    public Result<String> test21(@RequestBody Test2RequestDTO test2RequestDTO);
+    public Result<String> test21(Test2RequestDTO test2RequestDTO);
 }
