@@ -19,7 +19,8 @@ public class RocketMqServiceImpl implements RocketMqService {
     @Resource
     private DefaultMQProducer defaultMQProducer;
     @Resource
-    private ParamConfigService paramConfigService ;
+    private ParamConfigService paramConfigService;
+
     @Override
     public Result<String> openAccountMsg(String msgInfo) {
         // 可以不使用Config中的Group
@@ -34,7 +35,7 @@ public class RocketMqServiceImpl implements RocketMqService {
             e.printStackTrace();
         }
         log.info("sendResult:{}", new Gson().toJson(sendResult));
-        return Result.success(sendResult.getMsgId()) ;
+        return Result.success(sendResult.getMsgId());
     }
 }
 

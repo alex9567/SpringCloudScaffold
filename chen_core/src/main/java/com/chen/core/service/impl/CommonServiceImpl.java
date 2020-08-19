@@ -285,6 +285,7 @@ public class CommonServiceImpl implements CommonService {
 
     /**
      * 新版log aop
+     *
      * @param name
      * @return
      */
@@ -296,6 +297,7 @@ public class CommonServiceImpl implements CommonService {
 
     /**
      * 新版log aop
+     *
      * @param name
      * @return
      */
@@ -307,6 +309,7 @@ public class CommonServiceImpl implements CommonService {
 
     /**
      * 文件上传
+     *
      * @param file
      * @return
      */
@@ -318,7 +321,7 @@ public class CommonServiceImpl implements CommonService {
         }
         String fileDirPath = new String("file");
         File fileDir = new File(fileDirPath);
-        if(!fileDir.exists()){
+        if (!fileDir.exists()) {
             // 生成文件夹
             fileDir.mkdirs();
         }

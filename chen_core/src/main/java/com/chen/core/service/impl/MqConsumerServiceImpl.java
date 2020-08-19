@@ -10,7 +10,7 @@ public class MqConsumerServiceImpl implements MqConsumerService {
 
     @Override
     public String deal1(String message) {
-        log.info("message:{}",message);
+        log.info("message:{}", message);
         return message;
     }
 }

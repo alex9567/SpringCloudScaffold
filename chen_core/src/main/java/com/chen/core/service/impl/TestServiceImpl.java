@@ -19,6 +19,7 @@ import redis.clients.jedis.GeoRadiusResponse;
 import redis.clients.jedis.GeoUnit;
 
 import javax.annotation.Resource;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 
@@ -152,7 +153,7 @@ public class TestServiceImpl implements TestService {
      */
     @Override
     public String geoRemove(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
-        redisUtil.geoRemove(testRedisRequestDTO.getKey(),testRedisRequestDTO.getMember());
+        redisUtil.geoRemove(testRedisRequestDTO.getKey(), testRedisRequestDTO.getMember());
         return "success";
     }
 
@@ -164,7 +165,15 @@ public class TestServiceImpl implements TestService {
     @Override
     public String geoRadius(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
         GeoCoordinate geoCoordinate = new GeoCoordinate(testRedisRequestDTO.getLongitude(), testRedisRequestDTO.getLatitude());
-        List<GeoRadiusResponse>  radiusResponses = redisUtil.geoRadius(testRedisRequestDTO.getKey(),geoCoordinate,testRedisRequestDTO.getRadius(),GeoUnit.M);
+        List<GeoRadiusResponse> radiusResponses = redisUtil.geoRadius(testRedisRequestDTO.getKey(), geoCoordinate, testRedisRequestDTO.getRadius(), GeoUnit.M);
+        for(GeoRadiusResponse geoRadiusResponse:radiusResponses){
+            try {
+                String strContent = new String(geoRadiusResponse.getMember(), "utf-8");
+                log.info(new Gson().toJson(strContent));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
         log.info(new Gson().toJson(radiusResponses));
         return "success";
     }
@@ -176,7 +185,7 @@ public class TestServiceImpl implements TestService {
      */
     @Override
     public String geoDist(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
-        Double result = redisUtil.geoDist(testRedisRequestDTO.getKey(),testRedisRequestDTO.getMember(),testRedisRequestDTO.getMember2(),GeoUnit.M);
+        Double result = redisUtil.geoDist(testRedisRequestDTO.getKey(), testRedisRequestDTO.getMember(), testRedisRequestDTO.getMember2(), GeoUnit.M);
         log.info(new Gson().toJson(result));
         return "success";
     }
