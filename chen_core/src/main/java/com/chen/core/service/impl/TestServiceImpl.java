@@ -40,7 +40,7 @@ public class TestServiceImpl implements TestService {
      * @return
      */
     @Override
-    public String hello(@RequestBody TestHelloRequestDTO requestDTO) {
+    public String hello(TestHelloRequestDTO requestDTO) {
         log.info(new Gson().toJson(requestDTO));
         return "hello";
     }
@@ -139,7 +139,7 @@ public class TestServiceImpl implements TestService {
      * @return
      */
     @Override
-    public String geoAdd(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+    public String geoAdd(TestRedisRequestDTO testRedisRequestDTO) {
         GeoCoordinate geoCoordinate = new GeoCoordinate(testRedisRequestDTO.getLongitude(), testRedisRequestDTO.getLatitude());
         redisUtil.geoadd(testRedisRequestDTO.getKey(), geoCoordinate, testRedisRequestDTO.getMember());
         return "success";
@@ -151,7 +151,7 @@ public class TestServiceImpl implements TestService {
      * @return
      */
     @Override
-    public String geoRemove(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+    public String geoRemove(TestRedisRequestDTO testRedisRequestDTO) {
         redisUtil.geoRemove(testRedisRequestDTO.getKey(),testRedisRequestDTO.getMember());
         return "success";
     }
@@ -162,7 +162,7 @@ public class TestServiceImpl implements TestService {
      * @return
      */
     @Override
-    public String geoRadius(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+    public String geoRadius(TestRedisRequestDTO testRedisRequestDTO) {
         GeoCoordinate geoCoordinate = new GeoCoordinate(testRedisRequestDTO.getLongitude(), testRedisRequestDTO.getLatitude());
         List<GeoRadiusResponse>  radiusResponses = redisUtil.geoRadius(testRedisRequestDTO.getKey(),geoCoordinate,testRedisRequestDTO.getRadius(),GeoUnit.M);
         log.info(new Gson().toJson(radiusResponses));
@@ -175,7 +175,7 @@ public class TestServiceImpl implements TestService {
      * @return
      */
     @Override
-    public String geoDist(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+    public String geoDist(TestRedisRequestDTO testRedisRequestDTO) {
         Double result = redisUtil.geoDist(testRedisRequestDTO.getKey(),testRedisRequestDTO.getMember(),testRedisRequestDTO.getMember2(),GeoUnit.M);
         log.info(new Gson().toJson(result));
         return "success";

@@ -9,33 +9,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient(name = "SERVICE-A")
 //@FeignClient注解value必须与服务客户端application.yml配置中服务命名对应
+@RequestMapping("/test")
 public interface TestService {
-    @RequestMapping("/test/hello")
-    public String hello(TestHelloRequestDTO requestDTO);
-    @RequestMapping("/test/hi")
+    @RequestMapping("/hello")
+    public String hello(@RequestBody TestHelloRequestDTO requestDTO);
+    @RequestMapping("/hi")
     public String hi();
-    @RequestMapping("/test/one")
+    @RequestMapping("/one")
     public String one();
-    @RequestMapping("/test/two")
+    @RequestMapping("/two")
     public String two();
-    @RequestMapping("/test/oneByPage")
+    @RequestMapping("/oneByPage")
     public String oneByPage();
-    @RequestMapping("/test/oneByPage2")
+    @RequestMapping("/oneByPage2")
     public String oneByPage2();
-    @RequestMapping("/test/insertOne")
+    @RequestMapping("/insertOne")
     public String insertOne();
-    @RequestMapping("/test/insertTwo")
+    @RequestMapping("/insertTwo")
     public String insertTwo();
-    @RequestMapping("/test/redisInsert")
+    @RequestMapping("/redisInsert")
     public String redisInsert();
-    @RequestMapping("/test/geoAdd")
-    public String geoAdd(TestRedisRequestDTO testRedisRequestDTO);
-    @RequestMapping("/test/geoRemove")
-    public String geoRemove(TestRedisRequestDTO testRedisRequestDTO);
-    @RequestMapping("/test/geoRadius")
-    public String geoRadius(TestRedisRequestDTO testRedisRequestDTO);
-    @RequestMapping("/test/geoDist")
-    public String geoDist(TestRedisRequestDTO testRedisRequestDTO);
-    @RequestMapping("/test/getNacos")
+    @RequestMapping("/geoAdd")
+    public String geoAdd(@RequestBody TestRedisRequestDTO testRedisRequestDTO);
+    @RequestMapping("/geoRemove")
+    public String geoRemove(@RequestBody TestRedisRequestDTO testRedisRequestDTO);
+    @RequestMapping("/geoRadius")
+    public String geoRadius(@RequestBody TestRedisRequestDTO testRedisRequestDTO);
+    @RequestMapping("/geoDist")
+    public String geoDist(@RequestBody TestRedisRequestDTO testRedisRequestDTO);
+    @RequestMapping("/getNacos")
     public String getNacos();
 }

@@ -84,7 +84,7 @@ public class CommonServiceImpl implements CommonService {
      * @return
      */
     @Override
-    public Result<String> test3(@RequestBody TestHelloRequestDTO requestDTO) {
+    public Result<String> test3(TestHelloRequestDTO requestDTO) {
         log.info(new Gson().toJson(requestDTO));
         if (1 == 1) {
             throw new BaseException("test3", "11", "11");
@@ -187,7 +187,7 @@ public class CommonServiceImpl implements CommonService {
     @Override
     @ParamsLog
     @TraceLog
-    public Result<String> test11(@Valid @RequestBody Test2RequestDTO test2RequestDTO) {
+    public Result<String> test11(@Valid Test2RequestDTO test2RequestDTO) {
         return Result.success("scuuess");
     }
 

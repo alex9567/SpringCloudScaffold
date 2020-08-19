@@ -13,13 +13,14 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @FeignClient(name = "SERVICE-A")
+@RequestMapping("/common")
 public interface CommonService {
     @RequestMapping("/test1")
     public Result<String> test1();
     @RequestMapping("/test2")
     public Result<List<String>> test2();
     @RequestMapping("/test3")
-    public Result<String> test3(TestHelloRequestDTO requestDTO);
+    public Result<String> test3(@RequestBody TestHelloRequestDTO requestDTO);
     @RequestMapping("/test4")
     public Result<String> test4(String a);
     @RequestMapping("/test5")
@@ -35,9 +36,9 @@ public interface CommonService {
     @RequestMapping("/test10")
     public Result<String> test10(int a);
     @RequestMapping("/test11")
-    public Result<String> test11(Test2RequestDTO test2RequestDTO);
+    public Result<String> test11(@RequestBody Test2RequestDTO test2RequestDTO);
     @RequestMapping("/test12")
-    public Result<String> test12(Test2RequestDTO test2RequestDTO);
+    public Result<String> test12(@RequestBody Test2RequestDTO test2RequestDTO);
     @RequestMapping("/test13")
     public Result<String> test13(String name);
     @RequestMapping("/test14")
