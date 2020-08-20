@@ -190,6 +190,18 @@ public class TestServiceImpl implements TestService {
         return "success";
     }
 
+    /**
+     * 批量获得geo对应的
+     * @param testRedisRequestDTO
+     * @return
+     */
+    @Override
+    public String geoPos(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
+        List<GeoCoordinate> result = redisUtil.geoPos(testRedisRequestDTO.getKey(), testRedisRequestDTO.getMember(), testRedisRequestDTO.getMember2());
+        log.info(new Gson().toJson(result));
+        return "success";
+    }
+
 
     /**
      * 测试获得nacos的配置

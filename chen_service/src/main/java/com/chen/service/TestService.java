@@ -50,6 +50,9 @@ public interface TestService {
     @RequestMapping("/geoDist")
     public String geoDist(TestRedisRequestDTO testRedisRequestDTO);
 
+    @RequestMapping("/geoPos")
+    public String geoPos(TestRedisRequestDTO testRedisRequestDTO);
+
     @RequestMapping("/getNacos")
     public String getNacos();
 }

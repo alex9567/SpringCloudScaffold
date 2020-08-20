@@ -160,6 +160,20 @@ public class RedisUtil {
         }
         return null;
     }
+
+
+    public List<GeoCoordinate> geoPos(String key, String... var2) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            return jedis.geopos(key,var2);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        } finally {
+            close(jedis);
+        }
+        return null;
+    }
     // 以上为常用方法，更多方法自行百度
 
     /**
