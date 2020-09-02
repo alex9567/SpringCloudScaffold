@@ -4,7 +4,6 @@ import com.alibaba.druid.pool.xa.DruidXADataSource;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.atomikos.jdbc.AtomikosDataSourceBean;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

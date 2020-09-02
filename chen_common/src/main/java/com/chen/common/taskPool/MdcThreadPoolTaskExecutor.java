@@ -1,19 +1,16 @@
 package com.chen.common.taskPool;
 
 
-import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-import java.util.UUID;
-
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
-
 import org.slf4j.MDC;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
-import com.google.common.base.Strings;
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.CollectionUtils;
+
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
 
 @Slf4j
 public class MdcThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {

@@ -1,7 +1,6 @@
 package com.chen.service.requestDTO;
 
 import javax.validation.constraints.NotBlank;
-
 import java.io.Serializable;
 
 /**

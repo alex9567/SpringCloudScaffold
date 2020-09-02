@@ -1,11 +1,12 @@
 package com.chen.common.utils;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.util.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import org.springframework.beans.BeanUtils;
-import org.springframework.util.CollectionUtils;
 
 public class BeanCopyUtil {
     public static <T, S> List<T> convertList(Collection<S> srcList, Class<T> targetClazz) {

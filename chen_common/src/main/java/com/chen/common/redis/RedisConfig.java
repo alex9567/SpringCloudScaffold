@@ -3,7 +3,6 @@ package com.chen.common.redis;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.JedisPool;

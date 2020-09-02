@@ -1,8 +1,6 @@
 package com.chen.common.logAop;
 
-import com.chen.common.exception.BaseException;
 import com.chen.common.exception.BaseException2;
-import com.chen.common.result.ResultReturn;
 import com.chen.common.result.ResultReturnEnum;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
@@ -17,9 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Aspect

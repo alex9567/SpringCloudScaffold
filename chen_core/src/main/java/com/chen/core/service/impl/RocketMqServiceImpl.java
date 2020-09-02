@@ -1,7 +1,7 @@
 package com.chen.core.service.impl;
 
-import com.chen.service.RocketMqService;
 import com.chen.common.mq.ParamConfigService;
+import com.chen.service.RocketMqService;
 import com.chen.service.result.Result;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +9,6 @@ import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import javax.annotation.Resource;
 

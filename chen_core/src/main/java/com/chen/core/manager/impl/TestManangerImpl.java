@@ -3,12 +3,12 @@ package com.chen.core.manager.impl;
 
 import com.chen.common.exception.BaseException;
 import com.chen.core.manager.TestMananger;
-import com.chen.dao.mapper1.ChenTestMapper;
-import com.chen.dao.mapper2.ChenTest2Mapper;
 import com.chen.dao.do1.ChenTest;
 import com.chen.dao.do1.ChenTestExample;
 import com.chen.dao.do2.ChenTest2;
 import com.chen.dao.do2.ChenTest2Example;
+import com.chen.dao.mapper1.ChenTestMapper;
+import com.chen.dao.mapper2.ChenTest2Mapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
