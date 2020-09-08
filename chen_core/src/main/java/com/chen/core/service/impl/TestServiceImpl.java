@@ -1,5 +1,6 @@
 package com.chen.core.service.impl;
 
+
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.chen.common.logAop.ParamsLog;
@@ -24,10 +25,11 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@NacosPropertySource(dataId = "CHEN_COMMON_CONFIG", groupId = "DEFAULT_GROUP", autoRefreshed = true)
+@NacosPropertySource(dataId = "CHEN_COMMON_CONFIG2", groupId = "DEFAULT_GROUP", autoRefreshed = true)
 public class TestServiceImpl implements TestService {
-    @NacosValue(value = "${hi}", autoRefreshed = true)
-    private String hello;
+    //@NacosValue(value = "${hi:111}",autoRefreshed = true)
+    @NacosValue(value = "${hi:test1}", autoRefreshed = true)
+    private String hi;
     @Resource
     TestMananger testMananger;
     @Resource
@@ -165,7 +167,7 @@ public class TestServiceImpl implements TestService {
     public String geoRadius(@RequestBody TestRedisRequestDTO testRedisRequestDTO) {
         GeoCoordinate geoCoordinate = new GeoCoordinate(testRedisRequestDTO.getLongitude(), testRedisRequestDTO.getLatitude());
         List<GeoRadiusResponse> radiusResponses = redisUtil.geoRadius(testRedisRequestDTO.getKey(), geoCoordinate, testRedisRequestDTO.getRadius(), GeoUnit.M);
-        for(GeoRadiusResponse geoRadiusResponse:radiusResponses){
+        for (GeoRadiusResponse geoRadiusResponse : radiusResponses) {
             try {
                 String strContent = new String(geoRadiusResponse.getMember(), "utf-8");
                 log.info(new Gson().toJson(strContent));
@@ -191,6 +193,7 @@ public class TestServiceImpl implements TestService {
 
     /**
      * 批量获得geo对应的
+     *
      * @param testRedisRequestDTO
      * @return
      */
@@ -209,6 +212,7 @@ public class TestServiceImpl implements TestService {
      */
     @Override
     public String getNacos() {
-        return hello;
+        log.info("hi:{}", hi);
+        return "success";
     }
 }

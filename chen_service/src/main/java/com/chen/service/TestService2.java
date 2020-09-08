@@ -19,4 +19,6 @@ public interface TestService2 {
 
     @RequestMapping("/test4")
     public Result<String> test4(TestHelloRequestDTO requestDTO);
+    @RequestMapping("/getNacos")
+    public String getNacos();
 }

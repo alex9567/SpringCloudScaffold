@@ -1,7 +1,5 @@
 package com.chen.core.service.impl;
 
-import com.alibaba.nacos.api.config.annotation.NacosValue;
-import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.chen.common.exception.BaseException;
 import com.chen.common.logAop.ParamsLog;
 import com.chen.common.logAop.ParamsLog2;
@@ -39,11 +37,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
-@NacosPropertySource(dataId = "CHEN_COMMON_CONFIG3", groupId = "DEFAULT_GROUP", autoRefreshed = true)
 public class CommonServiceImpl implements CommonService {
-    //@NacosValue(value = "${hi:111}",autoRefreshed = true)
-    @NacosValue(value = "${hi}", autoRefreshed = true)
-    private String hello;
     @Resource
     ChenConfigInfo chenConfigInfo;
     @Resource
@@ -115,7 +109,7 @@ public class CommonServiceImpl implements CommonService {
         log.info("test5");
         log.warn("test5");
         log.error("test5");
-        return Result.success(hello);
+        return Result.success("success");
     }
 
     /**
