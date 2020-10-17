@@ -11,6 +11,9 @@ import com.chen.core.piplineHandler.ApplicationService2;
 import com.chen.core.piplineHandler.Request;
 import com.chen.core.piplineHandler2.HandlerChain;
 import com.chen.core.piplineHandler2.HandlerRequest;
+import com.chen.core.piplineHandler3.Context;
+import com.chen.core.piplineHandler3.Test1Chain;
+import com.chen.core.piplineHandler3.Test2Chain;
 import com.chen.core.process.TestProcessFactory;
 import com.chen.core.process.service.TsetProcessService;
 import com.chen.openFeign.common.ResultTest;
@@ -52,6 +55,10 @@ public class CommonServiceImpl implements CommonService {
     ChenTestService chenTestService;
     @Resource
     TaskExceute taskExceute;
+    @Resource
+    Test1Chain test1Chain;
+    @Resource
+    Test2Chain test2Chain;
 
     @Override
     public Result<String> test1() {
@@ -338,6 +345,20 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public Result<String> test21(@RequestBody Test2RequestDTO test2RequestDTO) {
         log.info(new Gson().toJson(test2RequestDTO));
+        return Result.success("success");
+    }
+
+    /**
+     * 自己实现的责任链2 ,抄的
+     *
+     * @param name
+     * @return
+     */
+    @Override
+    public Result<String> test22(String name) {
+        Context context = new Context();
+        test1Chain.doExecute(context);
+        test2Chain.doExecute(context);
         return Result.success("success");
     }
 

@@ -74,4 +74,7 @@ public interface CommonService {
 
     @RequestMapping("/test21")
     public Result<String> test21(Test2RequestDTO test2RequestDTO);
+
+    @RequestMapping("/test22")
+    public Result<String> test22(String name);
 }
