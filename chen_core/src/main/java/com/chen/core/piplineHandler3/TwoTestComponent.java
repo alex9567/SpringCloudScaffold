@@ -1,11 +1,13 @@
 package com.chen.core.piplineHandler3;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
-public class FourComponent implements Component{
+@Component
+public class TwoTestComponent implements TestComponent {
     @Override
     public void execute(Context context) {
-        log.info("four");
+        log.info("two");
     }
 }

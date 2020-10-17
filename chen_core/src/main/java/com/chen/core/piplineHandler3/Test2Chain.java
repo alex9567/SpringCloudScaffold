@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Test2Chain {
 
-    private List<Component> componentList;
+    private List<TestComponent> testComponentList;
 
-    Test2Chain(List<Component> componentList) {
-        this.componentList = componentList;
+    Test2Chain(List<TestComponent> testComponentList) {
+        this.testComponentList = testComponentList;
     }
 
     public void doExecute(Context context) {
-        for(Component component:componentList){
-            component.execute(context);
+        for(TestComponent testComponent : testComponentList){
+            testComponent.execute(context);
         }
     }
 }

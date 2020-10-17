@@ -12,35 +12,35 @@ import java.util.List;
 public class ChainConfig {
 
     @Resource
-    private List<Component> refundComponents;
+    private List<TestComponent> testComponents;
 
     @Bean
     public Test1Chain test1Chain() {
-        List<Component> chain = new ArrayList<>();
+        List<TestComponent> chain = new ArrayList<>();
 
-        chain.add(getComponent(OneComponent.class));
-        chain.add(getComponent(TwoComponent.class));
+        chain.add(getComponent(OneTestComponent.class));
+        chain.add(getComponent(TwoTestComponent.class));
 
         return new Test1Chain(chain);
     }
 
     @Bean
     public Test2Chain test2Chain() {
-        List<Component> chain = new ArrayList<>();
+        List<TestComponent> chain = new ArrayList<>();
 
-        chain.add(getComponent(OneComponent.class));
-        chain.add(getComponent(ThreeComponent.class));
-        chain.add(getComponent(FourComponent.class));
+        chain.add(getComponent(OneTestComponent.class));
+        chain.add(getComponent(ThreeTestComponent.class));
+        chain.add(getComponent(FourTestComponent.class));
 
         return new Test2Chain(chain);
     }
 
 
-    private <T extends Component> T getComponent(Class<T> clazz) {
-        for (Component c : refundComponents) {
+    private <T extends TestComponent> T getComponent(Class<T> clazz) {
+        for (TestComponent c : testComponents) {
             if (ClassUtils.isAssignable(c.getClass(), clazz)) {
-                Component component = c;
-                return component == null ? null : (T) component;
+                TestComponent testComponent = c;
+                return testComponent == null ? null : (T) testComponent;
             }
         }
         return null;

@@ -1,6 +1,6 @@
 package com.chen.core.piplineHandler3;
 
-public interface Component {
+public interface TestComponent {
 
     void execute(Context context);
 }
