@@ -122,14 +122,14 @@ public class StreamDemo {
 //String 类自身已实现Compareable接口
         list.stream().sorted().forEach(System.out::println);// aa dd ff
 
-        Student s1 = new Student("aa", 10);
-        Student s2 = new Student("bb", 20);
-        Student s3 = new Student("aa", 30);
-        Student s4 = new Student("dd", 40);
-        List<Student> studentList = Arrays.asList(s1, s2, s3, s4);
+        StreamStudent s1 = new StreamStudent("aa", 10);
+        StreamStudent s2 = new StreamStudent("bb", 20);
+        StreamStudent s3 = new StreamStudent("aa", 30);
+        StreamStudent s4 = new StreamStudent("dd", 40);
+        List<StreamStudent> streamStudentList = Arrays.asList(s1, s2, s3, s4);
 
 //自定义排序：先按姓名升序，姓名相同则按年龄升序
-        studentList.stream().sorted(
+        streamStudentList.stream().sorted(
                 (o1, o2) -> {
                     if (o1.getName().equals(o2.getName())) {
                         return o1.getAge() - o2.getAge();
@@ -145,11 +145,11 @@ public class StreamDemo {
      * peek：如同于map，能得到流中的每一个元素。但map接收的是一个Function表达式，有返回值；而peek接收的是Consumer表达式，没有返回值。
      */
     public void peek() {
-        Student s1 = new Student("aa", 10);
-        Student s2 = new Student("bb", 20);
-        List<Student> studentList = Arrays.asList(s1, s2);
+        StreamStudent s1 = new StreamStudent("aa", 10);
+        StreamStudent s2 = new StreamStudent("bb", 20);
+        List<StreamStudent> streamStudentList = Arrays.asList(s1, s2);
 
-        studentList.stream()
+        streamStudentList.stream()
                 .peek(o -> o.setAge(100))
                 .forEach(System.out::println);
 
@@ -237,47 +237,47 @@ public class StreamDemo {
      * IDENTITY_FINISH：表示finisher参数只是标识而已，可忽略。
      */
     public void collect() {
-        Student s1 = new Student("aa", 10, 1);
-        Student s2 = new Student("bb", 20, 2);
-        Student s3 = new Student("cc", 10, 3);
-        List<Student> list = Arrays.asList(s1, s2, s3);
+        StreamStudent s1 = new StreamStudent("aa", 10, 1);
+        StreamStudent s2 = new StreamStudent("bb", 20, 2);
+        StreamStudent s3 = new StreamStudent("cc", 10, 3);
+        List<StreamStudent> list = Arrays.asList(s1, s2, s3);
 
 //装成list
-        List<Integer> ageList = list.stream().map(Student::getAge).collect(Collectors.toList()); // [10, 20, 10]
+        List<Integer> ageList = list.stream().map(StreamStudent::getAge).collect(Collectors.toList()); // [10, 20, 10]
 
 //转成set
-        Set<Integer> ageSet = list.stream().map(Student::getAge).collect(Collectors.toSet()); // [20, 10]
+        Set<Integer> ageSet = list.stream().map(StreamStudent::getAge).collect(Collectors.toSet()); // [20, 10]
 
 //转成map,注:key不能相同，否则报错
-        Map<String, Integer> studentMap = list.stream().collect(Collectors.toMap(Student::getName, Student::getAge)); // {cc=10, bb=20, aa=10}
+        Map<String, Integer> studentMap = list.stream().collect(Collectors.toMap(StreamStudent::getName, StreamStudent::getAge)); // {cc=10, bb=20, aa=10}
 
 //字符串分隔符连接
-        String joinName = list.stream().map(Student::getName).collect(Collectors.joining(",", "(", ")")); // (aa,bb,cc)
+        String joinName = list.stream().map(StreamStudent::getName).collect(Collectors.joining(",", "(", ")")); // (aa,bb,cc)
 
 //聚合操作
 //1.学生总数
         Long count = list.stream().collect(Collectors.counting()); // 3
 //2.最大年龄 (最小的minBy同理)
-        Integer maxAge = list.stream().map(Student::getAge).collect(Collectors.maxBy(Integer::compare)).get(); // 20
+        Integer maxAge = list.stream().map(StreamStudent::getAge).collect(Collectors.maxBy(Integer::compare)).get(); // 20
 //3.所有人的年龄
-        Integer sumAge = list.stream().collect(Collectors.summingInt(Student::getAge)); // 40
+        Integer sumAge = list.stream().collect(Collectors.summingInt(StreamStudent::getAge)); // 40
 //4.平均年龄
-        Double averageAge = list.stream().collect(Collectors.averagingDouble(Student::getAge)); // 13.333333333333334
+        Double averageAge = list.stream().collect(Collectors.averagingDouble(StreamStudent::getAge)); // 13.333333333333334
 // 带上以上所有方法
-        DoubleSummaryStatistics statistics = list.stream().collect(Collectors.summarizingDouble(Student::getAge));
+        DoubleSummaryStatistics statistics = list.stream().collect(Collectors.summarizingDouble(StreamStudent::getAge));
         System.out.println("count:" + statistics.getCount() + ",max:" + statistics.getMax() + ",sum:" + statistics.getSum() + ",average:" + statistics.getAverage());
 
 //分组
-        Map<Integer, List<Student>> ageMap = list.stream().collect(Collectors.groupingBy(Student::getAge));
+        Map<Integer, List<StreamStudent>> ageMap = list.stream().collect(Collectors.groupingBy(StreamStudent::getAge));
 //多重分组,先根据类型分再根据年龄分
-        Map<Integer, Map<Integer, List<Student>>> typeAgeMap = list.stream().collect(Collectors.groupingBy(Student::getType, Collectors.groupingBy(Student::getAge)));
+        Map<Integer, Map<Integer, List<StreamStudent>>> typeAgeMap = list.stream().collect(Collectors.groupingBy(StreamStudent::getType, Collectors.groupingBy(StreamStudent::getAge)));
 
 //分区
 //分成两部分，一部分大于10岁，一部分小于等于10岁
-        Map<Boolean, List<Student>> partMap = list.stream().collect(Collectors.partitioningBy(v -> v.getAge() > 10));
+        Map<Boolean, List<StreamStudent>> partMap = list.stream().collect(Collectors.partitioningBy(v -> v.getAge() > 10));
 
 //规约
-        Integer allAge = list.stream().map(Student::getAge).collect(Collectors.reducing(Integer::sum)).get(); //40
+        Integer allAge = list.stream().map(StreamStudent::getAge).collect(Collectors.reducing(Integer::sum)).get(); //40
     }
 
     public static void main(String[] args) {

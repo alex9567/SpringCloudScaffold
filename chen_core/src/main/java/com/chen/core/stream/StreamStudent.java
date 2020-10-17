@@ -1,19 +1,19 @@
 package com.chen.core.stream;
 
-public class Student {
+public class StreamStudent {
     private String name ;
     private int age;
     private int type;
 
-    public Student() {
+    public StreamStudent() {
     }
 
-    public Student(String name, int age) {
+    public StreamStudent(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    public Student(String name, int age, int type) {
+    public StreamStudent(String name, int age, int type) {
         this.name = name;
         this.age = age;
         this.type = type;
