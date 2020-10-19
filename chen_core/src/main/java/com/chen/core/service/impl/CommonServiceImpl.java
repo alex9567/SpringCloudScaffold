@@ -6,6 +6,7 @@ import com.chen.common.logAop.ParamsLog2;
 import com.chen.common.logAop.TraceLog;
 import com.chen.common.nacos.ChenConfigInfo;
 import com.chen.common.taskPool.TaskExceute;
+import com.chen.core.context.ContextTest;
 import com.chen.core.pipline.ApplicationService;
 import com.chen.core.piplineHandler.ApplicationService2;
 import com.chen.core.piplineHandler.Request;
@@ -17,7 +18,7 @@ import com.chen.core.piplineHandler3.Test2Chain;
 import com.chen.core.process.TestProcessFactory;
 import com.chen.core.process.service.TsetProcessService;
 import com.chen.openFeign.common.ResultTest;
-import com.chen.openFeign.service.ChenTestService;
+import com.chen.openFeign.service.ChenTestService2;
 import com.chen.service.CommonService;
 import com.chen.service.requestDTO.Test2RequestDTO;
 import com.chen.service.requestDTO.TestHelloRequestDTO;
@@ -52,13 +53,15 @@ public class CommonServiceImpl implements CommonService {
     @Resource
     HandlerChain handlerChain;
     @Resource
-    ChenTestService chenTestService;
+    ChenTestService2 chenTestService;
     @Resource
     TaskExceute taskExceute;
     @Resource
     Test1Chain test1Chain;
     @Resource
     Test2Chain test2Chain;
+    @Resource
+    ContextTest contextTest;
 
     @Override
     public Result<String> test1() {
@@ -359,6 +362,12 @@ public class CommonServiceImpl implements CommonService {
         Context context = new Context();
         test1Chain.doExecute(context);
         test2Chain.doExecute(context);
+        return Result.success("success");
+    }
+
+    @Override
+    public Result<String> test23(String name) {
+        contextTest.execute(name);
         return Result.success("success");
     }
 

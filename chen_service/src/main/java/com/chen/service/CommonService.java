@@ -77,4 +77,7 @@ public interface CommonService {
 
     @RequestMapping("/test22")
     public Result<String> test22(String name);
+
+    @RequestMapping("/test23")
+    public Result<String> test23(String name);
 }
