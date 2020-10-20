@@ -8,11 +8,11 @@
     <contextName>logback</contextName>
     <springProperty scope="context" name="spring.application.name" source="spring.application.name"/>
     <property name="log.path" value="${spring.application.name}-log" />
-    <!--日志存放时间-->
+    <!--日志存放时间 该配置下为3天-->
     <property name="maxHistory" value="2" />
-    <!--日志分割大小为一个文件-->
+    <!--日志分割大小为一个文件，该配置下为10MB进行分割-->
     <property name="maxFileSize" value="10MB" />
-    <!-- 普通日志格式 -->
+    <!-- 普通日志格式 其中[%X{TRACE_ID}]以及[%X{HEAD_ID}] 如果没有看我的其他文章，可以去掉 -->
     <property name="FILE_LOG_PATTERN" value="[%X{HEAD_ID}][%X{TRACE_ID}][%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%-5level][%logger{40}]:%msg%n"/>
     <!--输出到debug-->
     <appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -35,7 +35,7 @@
 
     <!--输出到info-->
     <appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!--日志最大保存3天，并且每个日志格式最大大小设置-->
+        <!--日志最大保存3天，并且每个日志格式最大大小设置,举例格式为2020-10-20-log/info-0.log -->
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-log/info-%i.log</fileNamePattern>
             <maxHistory>${maxHistory}</maxHistory>
@@ -103,7 +103,8 @@
             <level>INFO</level>
         </filter>
     </appender>
-    <!-- 不同的业务逻辑日志打印到指定文件夹 additivity用于处理是否在其他日志战士，false不展示-->
+    <!-- 不同的业务逻辑日志打印到指定文件夹 additivity用于处理是否在其他日志战士，false不展示
+    这个类是我的内部类，你的话如果要用就是用自己的内部类，或者去掉other和这个-->
     <logger name="com.chen.common.logAop.ParamsLogAspect" additivity="true" level="INFO">
         <appender-ref ref="other"/>
     </logger>
