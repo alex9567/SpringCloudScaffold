@@ -6,6 +6,7 @@
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
     <!--log文件格式中添加%contextName可以获得这个值，参照history第一次提交-->
     <contextName>logback</contextName>
+    <!--log文件的默认文件夹的名称和位置，获得的参数为yml中的spring.application.name -->
     <springProperty scope="context" name="spring.application.name" source="spring.application.name"/>
     <property name="log.path" value="${spring.application.name}-log" />
     <!--日志存放时间 该配置下为3天-->
