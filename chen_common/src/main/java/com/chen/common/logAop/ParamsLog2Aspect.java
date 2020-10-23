@@ -69,7 +69,7 @@ public class ParamsLog2Aspect {
         long startTime = System.currentTimeMillis();
         ParamsLog2 paramsLog = getParamsLog(proceedingJoinPoint);
         if(paramsLog.logTrace()){
-            MDC.clear();
+            MDC.remove(TRACE_ID);
         }
         Object result = proceedingJoinPoint.proceed();
         //最终需要的日志格式

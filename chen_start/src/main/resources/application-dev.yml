@@ -6,6 +6,10 @@ spring:
     name: SERVICE-A
   datasource:
     druid:
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
 
       # WebStatFilter 用于采集 web-jdbc 关联监控的数据。
       web-stat-filter:
@@ -78,3 +82,10 @@ eureka:
       defaultZone: http://134.175.217.13:8761/eureka/
 
 
+ribbon:
+  # 同一实例最大重试次数，不包括首次调用。默认值为0
+  MaxAutoRetries: 0
+  # 同一个微服务其他实例的最大重试次数，不包括第一次调用的实例。默认值为1
+  MaxAutoRetriesNextServer: 0
+  # 是否所有操作（GET、POST等）都允许重试。默认值为false
+  OkToRetryOnAllOperations: false

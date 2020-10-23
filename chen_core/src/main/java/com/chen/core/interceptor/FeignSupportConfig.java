@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 public class FeignSupportConfig {
-    @Autowired
-    FeignTrackInterceptor feignTrackInterceptor;
 
     /**
      * feign请求拦截器
@@ -23,6 +21,6 @@ public class FeignSupportConfig {
      */
     @Bean
     public RequestInterceptor requestInterceptor() {
-        return feignTrackInterceptor;
+        return new FeignTrackInterceptor();
     }
 }

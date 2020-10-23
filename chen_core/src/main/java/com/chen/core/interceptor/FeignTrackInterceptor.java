@@ -9,23 +9,22 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 @Slf4j
-@Component
 public class FeignTrackInterceptor implements RequestInterceptor {
-    private String headTraceId = "head_trace_id";
-    private String traceId = "HEAD_TRACE_ID";
+    private static final String HEAD_ID = "head_id";
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        log.info("request:{}", new Gson().toJson(request.getHeader("head_id")));
-        log.info("feign:{}", new Gson().toJson(requestTemplate.header("head_id")));
-        //head_id
-        if (request.getHeader("head_id") != null) {
-            requestTemplate.header("head_id", request.getHeader("head_id"));
+        log.info("request:{}", new Gson().toJson(request.getHeader(HEAD_ID)));
+        log.info("feign:{}", new Gson().toJson(requestTemplate.header(HEAD_ID)));
+        String headId = request.getHeader(HEAD_ID);
+        if(headId==null){
+            headId = (String)request.getAttribute(HEAD_ID);
         }
-
+        requestTemplate.header(HEAD_ID, headId);
     }
 }

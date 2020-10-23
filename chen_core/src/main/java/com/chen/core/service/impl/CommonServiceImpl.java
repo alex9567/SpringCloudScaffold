@@ -243,9 +243,10 @@ public class CommonServiceImpl implements CommonService {
      * @return
      */
     @Override
+    @ParamsLog2(logTrace=true)
     public Result<String> test15(String name) {
         ResultTest<String> resultTest = chenTestService.test1();
-        log.info(new Gson().toJson(resultTest));
+        log.info("resultTest:{}",new Gson().toJson(resultTest));
         return Result.success("success");
     }
 
