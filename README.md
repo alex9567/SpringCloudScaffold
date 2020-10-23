@@ -26,3 +26,5 @@ CSDN相关博客更新:
 (十一)logback配置：https://blog.csdn.net/qq_33562996/article/details/109192067
 
 (十二)简易责任链写法：https://blog.csdn.net/qq_33562996/article/details/109212115
+
+(十三)Fegin微服务应用之间请求追踪链路开发：https://blog.csdn.net/qq_33562996/article/details/109241711
