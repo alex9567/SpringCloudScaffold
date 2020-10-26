@@ -47,6 +47,8 @@ rocketmq:
     isOnOff: on
     # 发送同一类消息的设置为同一个group，保证唯一
     groupName: chengroup
+    # 发送同一类消息的设置为同一个group，保证唯一
+    groupName2: chengroup2
     # 服务地址
     namesrvAddr: 129.211.71.185:9876
     # 消息最大长度 默认1024*4(4M)
@@ -64,7 +66,7 @@ rocketmq:
     # 服务地址
     namesrvAddr: 129.211.71.185:9876
     # 接收该 Topic 下所有 Tag
-    topics: mytopic~*;
+    topics: mytopic~*;mytopic2~*;
     consumeThreadMin: 20
     consumeThreadMax: 64
     # 设置一次消费消息的条数，默认为1条
@@ -73,8 +75,11 @@ rocketmq:
 rocket:
   #发送消息group不用填写
   group: chengroup
+  group2: chengroup2
   topic: mytopic
+  topic2: mytopic2
   tag: rocketTag
+  tag2: rocketTag2
 
 eureka:
   client:

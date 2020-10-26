@@ -45,13 +45,12 @@ public class RocketMsgListener implements MessageListenerConcurrently {
             String tags = messageExt.getTags();
             switch (tags) {
                 case "rocketTag":
-                    log.info("开户 tag == >>" + tags);
+                    log.info("tag == >>" + tags);
                     try {
                         mqConsumerService.deal1(messageExt.getMsgId());
                     } catch (Exception e) {
                         log.error("error", e);
                     }
-
                     log.info("end == >>" + tags);
                     break;
                 default:

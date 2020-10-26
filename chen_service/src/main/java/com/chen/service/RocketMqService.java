@@ -9,5 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/mq")
 public interface RocketMqService {
     @RequestMapping("/sendOne")
-    public Result<String> openAccountMsg(String msgInfo);
+    public Result<String> openAccountMsg(String key,String msgInfo);
+    @RequestMapping("/sendOther")
+    public Result<String> sendOther(String key,String msgInfo);
 }

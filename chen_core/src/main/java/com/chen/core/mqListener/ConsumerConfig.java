@@ -52,4 +52,13 @@ public class ConsumerConfig {
         }
         return consumer;
     }
+
+    public static void main(String[] args) {
+        String topics = "mytopic~*;mytopic2~*";
+        String[] topicTagsArr = topics.split(";");
+        for (String topicTags : topicTagsArr) {
+            String[] topicTag = topicTags.split("~");
+            System.out.println(topicTag[0]+","+topicTag[1]);
+        }
+    }
 }
