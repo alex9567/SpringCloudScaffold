@@ -1,5 +1,7 @@
 package com.chen.core.service.impl;
 
+import com.chen.common.logAop.ParamsLog;
+import com.chen.common.logAop.ParamsLog2;
 import com.chen.common.mq.AffairsMsgListener;
 import com.chen.common.mq.ParamConfigService;
 import com.chen.service.RocketMqService;
@@ -42,6 +44,7 @@ public class RocketMqServiceImpl implements RocketMqService {
     }
 
     @Override
+    @ParamsLog2
     public Result<String> sendOther(String key,String msgInfo) {
         // 可以不使用Config中的Group
         //transactionMQProducer.setProducerGroup(paramConfigService.rocketGroup2);
