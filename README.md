@@ -30,3 +30,5 @@ CSDN相关博客更新:
 (十三)Feign微服务应用之间请求追踪链路开发：https://blog.csdn.net/qq_33562996/article/details/109241711
 
 (十四)rocketmq使用事务消息：https://blog.csdn.net/qq_33562996/article/details/109367878
+
+(十五)比简单责任链复杂一些的责任链实现:https://blog.csdn.net/qq_33562996/article/details/109456056
