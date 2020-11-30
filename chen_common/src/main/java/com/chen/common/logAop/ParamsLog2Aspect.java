@@ -67,16 +67,16 @@ public class ParamsLog2Aspect {
     @Around("paramsLog2()")
     public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
-        ParamsLog2 paramsLog = getParamsLog(proceedingJoinPoint);
-        if(paramsLog.logTrace()){
-            MDC.remove(TRACE_ID);
-        }
         Object result = proceedingJoinPoint.proceed();
         //最终需要的日志格式
         log.info("ClassMethod:{}.{},ResponseArgs:{},Time-Consuming:{}ms", proceedingJoinPoint.getSignature().getDeclaringTypeName(),
                 proceedingJoinPoint.getSignature().getName(),
                 new Gson().toJson(result),
                 System.currentTimeMillis() - startTime);
+        ParamsLog2 paramsLog = getParamsLog(proceedingJoinPoint);
+        if(paramsLog.logTrace()){
+            MDC.remove(TRACE_ID);
+        }
         return result;
     }
 

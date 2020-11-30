@@ -42,8 +42,8 @@ public class TraceLogAspect {
      */
     @Around("traceLog()")
     public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        MDC.clear();
         Object result = proceedingJoinPoint.proceed();
+        MDC.remove(TRACE_ID);
         return result;
     }
 
