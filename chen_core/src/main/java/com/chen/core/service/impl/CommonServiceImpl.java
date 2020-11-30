@@ -353,7 +353,7 @@ public class CommonServiceImpl implements CommonService {
     }
 
     /**
-     * 自己实现的责任链2 ,抄的
+     * 自己实现的责任链2
      *
      * @param name
      * @return
@@ -364,7 +364,7 @@ public class CommonServiceImpl implements CommonService {
         test1Chain.doExecute(context);
         test2Chain.doExecute(context);
         return Result.success("success");
-    }
+}
 
     @Override
     public Result<String> test23(String name) {

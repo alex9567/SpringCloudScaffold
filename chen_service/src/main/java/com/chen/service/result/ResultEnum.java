@@ -3,6 +3,7 @@ package com.chen.service.result;
 public enum ResultEnum {
     SUCCESS("200","成功"),
     PARAM_ERROR("300","传参错误"),
+    SIGN_CHECK_ERROR("301","签名参数错误"),
     ERROR("500","系统异常"),
     ;
     private String code;
