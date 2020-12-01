@@ -4,7 +4,7 @@ import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.chen.service.TestService2;
 import com.chen.service.requestDTO.TestHelloRequestDTO;
-import com.chen.service.result.Result;
+import com.chen.common.result.Result;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;

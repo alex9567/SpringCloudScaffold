@@ -15,10 +15,6 @@
     <dependencies>
         <dependency>
             <groupId>com.chen</groupId>
-            <artifactId>chen_service</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.chen</groupId>
             <artifactId>chen_dao</artifactId>
         </dependency>
         <dependency>

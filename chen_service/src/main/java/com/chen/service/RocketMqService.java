@@ -1,7 +1,7 @@
 package com.chen.service;
 
 
-import com.chen.service.result.Result;
+import com.chen.common.result.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 

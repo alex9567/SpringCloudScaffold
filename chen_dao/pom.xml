@@ -15,9 +15,10 @@
     <dependencies>
         <dependency>
             <groupId>com.chen</groupId>
-            <artifactId>chen_common</artifactId>
+            <artifactId>chen_config</artifactId>
         </dependency>
     </dependencies>
+    <!--    用于处理xml问题-->
     <build>
         <resources>
             <resource>

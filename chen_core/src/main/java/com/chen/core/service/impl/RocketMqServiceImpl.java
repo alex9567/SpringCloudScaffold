@@ -1,11 +1,9 @@
 package com.chen.core.service.impl;
 
-import com.chen.common.logAop.ParamsLog;
-import com.chen.common.logAop.ParamsLog2;
-import com.chen.common.mq.AffairsMsgListener;
-import com.chen.common.mq.ParamConfigService;
+import com.chen.config.logAop.ParamsLog2;
+import com.chen.config.mq.ParamConfigService;
 import com.chen.service.RocketMqService;
-import com.chen.service.result.Result;
+import com.chen.common.result.Result;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;

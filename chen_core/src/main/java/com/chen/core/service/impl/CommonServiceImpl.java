@@ -1,11 +1,11 @@
 package com.chen.core.service.impl;
 
 import com.chen.common.exception.BaseException;
-import com.chen.common.logAop.ParamsLog;
-import com.chen.common.logAop.ParamsLog2;
-import com.chen.common.logAop.TraceLog;
-import com.chen.common.nacos.ChenConfigInfo;
-import com.chen.common.taskPool.TaskExceute;
+import com.chen.config.logAop.ParamsLog;
+import com.chen.config.logAop.ParamsLog2;
+import com.chen.config.logAop.TraceLog;
+import com.chen.config.nacos.ChenConfigInfo;
+import com.chen.config.taskPool.TaskExceute;
 import com.chen.core.context.ContextTest;
 import com.chen.core.pipline.ApplicationService;
 import com.chen.core.piplineHandler.ApplicationService2;
@@ -22,7 +22,7 @@ import com.chen.openFeign.service.ChenTestService2;
 import com.chen.service.CommonService;
 import com.chen.service.requestDTO.Test2RequestDTO;
 import com.chen.service.requestDTO.TestHelloRequestDTO;
-import com.chen.service.result.Result;
+import com.chen.common.result.Result;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;

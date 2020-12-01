@@ -14,6 +14,7 @@
         <module>chen_core</module>
         <module>chen_service</module>
         <module>chen_start</module>
+        <module>chen_config</module>
     </modules>
     <!-- 常量定义 -->
     <properties>
@@ -43,22 +44,27 @@
             <!--本地jar-->
             <dependency>
                 <groupId>com.chen</groupId>
-                <artifactId>chen_dao</artifactId>
-                <version>${project-common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.chen</groupId>
                 <artifactId>chen_common</artifactId>
                 <version>${project-common.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.chen</groupId>
-                <artifactId>chen_core</artifactId>
+                <artifactId>chen_service</artifactId>
                 <version>${project-common.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.chen</groupId>
-                <artifactId>chen_service</artifactId>
+                <artifactId>chen_config</artifactId>
+                <version>${project-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chen</groupId>
+                <artifactId>chen_dao</artifactId>
+                <version>${project-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chen</groupId>
+                <artifactId>chen_core</artifactId>
                 <version>${project-common.version}</version>
             </dependency>
             <dependency>
@@ -142,6 +148,11 @@
                 <groupId>com.chen</groupId>
                 <artifactId>chen-openFeign</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>3.2.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

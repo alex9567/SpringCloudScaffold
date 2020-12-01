@@ -169,7 +169,7 @@
 /chen_common/target/classes/com/chen/common/db/MyBatisConfigOne.class
 /chen_common/target/classes/com/chen/common/db/MyBatisConfigTwo.class
 /chen_common/target/classes/com/chen/common/exception/BaseException.class
-/chen_common/target/classes/com/chen/common/exception/ErrorEnum.class
+/chen_common/target/classes/com/chen/common/exception/ResultErrorEnum.class
 /chen_common/target/classes/com/chen/common/exception/GlobalExceptionHandler.class
 /chen_common/target/classes/com/chen/common/logAop/WebLog.class
 /chen_common/target/classes/com/chen/common/logAop/WebLogAspect.class

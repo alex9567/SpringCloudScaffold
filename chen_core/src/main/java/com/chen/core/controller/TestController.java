@@ -1,11 +1,11 @@
 package com.chen.core.controller;
 
 
-import com.chen.common.logAop.ParamsCheck;
-import com.chen.common.logAop.ParamsLog;
-import com.chen.common.logAop.TraceLog;
+import com.chen.config.logAop.ParamsCheck;
+import com.chen.config.logAop.ParamsLog;
+import com.chen.config.logAop.TraceLog;
 import com.chen.service.requestDTO.Test1RequestDTO;
-import com.chen.service.result.Result;
+import com.chen.common.result.Result;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;

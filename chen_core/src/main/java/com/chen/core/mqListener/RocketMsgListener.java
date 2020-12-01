@@ -1,8 +1,8 @@
 package com.chen.core.mqListener;
 
-import com.chen.common.logAop.ParamsLog;
-import com.chen.common.logAop.TraceLog;
-import com.chen.common.mq.ParamConfigService;
+import com.chen.config.logAop.ParamsLog;
+import com.chen.config.logAop.TraceLog;
+import com.chen.config.mq.ParamConfigService;
 import com.chen.core.service.MqConsumerService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;

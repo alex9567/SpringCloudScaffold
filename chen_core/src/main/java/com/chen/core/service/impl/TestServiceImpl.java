@@ -3,9 +3,9 @@ package com.chen.core.service.impl;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
-import com.chen.common.logAop.ParamsLog;
-import com.chen.common.logAop.TraceLog;
-import com.chen.common.redis.RedisUtil;
+import com.chen.config.logAop.ParamsLog;
+import com.chen.config.logAop.TraceLog;
+import com.chen.config.redis.RedisUtil;
 import com.chen.core.manager.TestMananger;
 import com.chen.service.TestService;
 import com.chen.service.requestDTO.TestHelloRequestDTO;

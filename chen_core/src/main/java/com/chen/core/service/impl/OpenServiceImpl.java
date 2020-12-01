@@ -4,8 +4,8 @@ import com.chen.common.exception.BaseException;
 import com.chen.core.sign.CheckSign;
 import com.chen.service.OpenService;
 import com.chen.service.requestDTO.TestOpenRequestDTO;
-import com.chen.service.result.Result;
-import com.chen.service.result.ResultEnum;
+import com.chen.common.result.Result;
+import com.chen.common.result.ResultEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
