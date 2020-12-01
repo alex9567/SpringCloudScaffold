@@ -1,6 +1,8 @@
 package com.chen.common.result;
 
 
+import com.chen.common.exception.ErrorEnum;
+
 public class Result<T> {
     private String code;
     private String msg;
@@ -44,8 +46,8 @@ public class Result<T> {
         this.data = data;
     }
 
-    public static <T> Result<T> createResult(ResultEnum resultEnum, T data) {
-        return new Result(resultEnum.getCode(), resultEnum.getMessage(), data);
+    public static <T> Result<T> createResult(ErrorEnum errorEnum, T data) {
+        return new Result(errorEnum.getCode(), errorEnum.getMessage(), data);
     }
 
     public static <T> Result<T> createResult(String code, String message, T data) {
@@ -53,27 +55,27 @@ public class Result<T> {
     }
 
     public static <T> Result<T> success() {
-        return createResult(ResultEnum.SUCCESS, null);
+        return createResult(ErrorEnum.SUCCESS, null);
     }
 
     public static <T> Result<T> success(T data) {
-        return createResult(ResultEnum.SUCCESS, data);
+        return createResult(ErrorEnum.SUCCESS, data);
     }
 
     public static <T> Result<T> error() {
-        return createResult(ResultEnum.ERROR, null);
+        return createResult(ErrorEnum.ERROR, null);
     }
 
-    public static <T> Result<T> customError(ResultEnum resultEnum) {
-        return createResult(resultEnum, null);
+    public static <T> Result<T> customError(ErrorEnum errorEnum) {
+        return createResult(errorEnum, null);
     }
 
     public static <T> Result<T> customError(String code, String message) {
         return createResult(code, message, null);
     }
 
-    public static <T> Result<T> customError(ResultEnum resultEnum, T data) {
-        return createResult(resultEnum, data);
+    public static <T> Result<T> customError(ErrorEnum errorEnum, T data) {
+        return createResult(errorEnum, data);
     }
 
     public static <T> Result<T> customError(String code, String message, T data) {

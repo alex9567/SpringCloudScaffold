@@ -3,6 +3,7 @@ package com.chen.common.exception;
 public enum ErrorEnum {
     SUCCESS("200","成功"),
     PARAM_ERROR("300","传参错误"),
+    SIGN_CHECK_ERROR("301","签名参数错误"),
     ERROR("500","系统异常"),
     STRING_NOT_BLANK("1001","传参为空，参数名:{0}"),
     INTEGER_NOT_BLANK("1002","传参为空，参数名为{0}"),
